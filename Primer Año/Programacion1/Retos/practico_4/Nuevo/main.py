@@ -10,8 +10,6 @@ f2008.sort(key=ordenolistaMayor_menor, reverse=True)
 m2018.sort(key=ordenolistaMayor_menor, reverse=True)
 f2018.sort(key=ordenolistaMayor_menor, reverse=True)
 
-listaUnifi = m2008 + f2008 + m2018 + f2018
-# ['Liam 19837 m', 'Noah 18267 m', 'Michael 14516 m', 'James 13525 m', 'Oliver 13389 m']
 validadar = False
 while not validadar:
     sexo = input("Ingresar Sexo m/f: ")
@@ -33,4 +31,4 @@ while not ingresoVal:
         ingresoVal = True
     else:
         print("Ingresar un solo caracter (solo letras)")
-print(f"Nombres que se repiten: {buscarRepetidos(listaUnifi)}")
+print(f"Nombres que se repiten: {buscarRepetidos(*m2008, *m2018, *f2008, *f2018)}")

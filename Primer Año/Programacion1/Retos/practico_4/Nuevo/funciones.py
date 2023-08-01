@@ -73,10 +73,10 @@ def unificar(inicial, *args):
     return resultadoNom
 
 
-def buscarRepetidos(lista):
+def buscarRepetidos(*args):
     nombres = ""
     listaNom = []
-    for i in lista:
+    for i in args:
         nom, cant, sexo = i.split()
         listaNom.append(nom)
     for x in listaNom:
