@@ -1,5 +1,5 @@
 #input con opciones (Ejemplo: ‘Quiere ingresar datos (si/no)”?)
-from funciones import inputInt
+from metodos_cadenas import inputInt
 def inputChoice (opciones,msg,):
     op=opciones.split("/")
     for rec in range(len(op)):

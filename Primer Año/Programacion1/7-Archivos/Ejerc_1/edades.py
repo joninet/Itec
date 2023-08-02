@@ -1,5 +1,5 @@
 # 4. recorrido con for
-from funciones import *
+from metodos_cadenas import *
 listaMayores = []
 with open("7-Archivos/Ejerc_1/personas.txt", encoding="utf-8") as pers:
     pers.readline()

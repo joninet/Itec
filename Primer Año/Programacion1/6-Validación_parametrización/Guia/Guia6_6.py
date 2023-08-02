@@ -1,4 +1,4 @@
-from funciones import inputInt
+from metodos_cadenas import inputInt
 
 n = inputInt("Ingrese un entero entre 3 y 7: ", 3, 7)
 m = inputInt("Cualquier número real: ")

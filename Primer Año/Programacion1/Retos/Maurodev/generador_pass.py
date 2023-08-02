@@ -26,4 +26,4 @@ def generador(mayuscula=False,numeros=False,simbolos=False,miniMo=None, maxiMo=N
     print(longitud)
     return contra[:longitud]
 
-print(generador(mayuscula=True,numeros=True,simbolos=False,miniMo=8, maxiMo=16))
+print(generador(mayuscula=True,numeros=True,simbolos=True,miniMo=8, maxiMo=16))
