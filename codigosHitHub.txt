@@ -1,0 +1,9 @@
+
+git branch = me muestra todos los repositorios que tengo
+
+git add
+git commit -m
+git push origin main
+"esto me sube los cambios a hithub"
+
+git pull origin main = me trae todos los cambios desde hithub
