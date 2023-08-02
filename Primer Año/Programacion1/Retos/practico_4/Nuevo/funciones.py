@@ -85,3 +85,4 @@ def buscarRepetidos(*args):
             nombres = nombres + " " + x
             listaNom.remove(x)
     return nombres
+print("prueba2")
