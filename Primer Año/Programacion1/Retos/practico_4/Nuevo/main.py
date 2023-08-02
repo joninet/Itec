@@ -31,4 +31,6 @@ while not ingresoVal:
         ingresoVal = True
     else:
         print("Ingresar un solo caracter (solo letras)")
-print(f"Nombres que se repiten: {buscarRepetidos(*m2008, *m2018, *f2008, *f2018)}")
+print(
+    f"Nombres que se repiten: {buscarRepetidos(*m2008, *m2018, *f2008, *f2018)}")
+print("probando")
