@@ -1,4 +1,3 @@
-import random
-abece = "abcdefghijklmnopqrstuvwxyz"
-num=random.choice(abece).upper()
-print(num)
+num = 33054148
+formatted_num = '{:,}'.format(num).replace(',', '.')
+print(formatted_num)  # Salida: 33.054.148
