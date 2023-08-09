@@ -3,20 +3,20 @@
 # password2 = inputStr('Password (a lo sumo 5): ', maxi=5)
 # password3 = inputStr('Password (sin rango): ')
 
-def inputStr(msg, miniMo=None, maxiMo=None):
+def inputStr(msg, miniMo=0, maxiMo=None):
     validacion = False
     while not validacion:
         contra = input(msg)
-        if miniMo != None and maxiMo != None and len(contra) > miniMo and len(contra) < maxiMo:
+        if miniMo != 0 and maxiMo != None and len(contra) > miniMo and len(contra) < maxiMo:
             print("contraseña correcta")
             validacion = True
-        elif miniMo != None and maxiMo == None and len(contra) >= miniMo:
+        elif miniMo != 0 and maxiMo == None and len(contra) >= miniMo:
             print("contraseña correcta")
             validacion = True
-        elif miniMo == None and maxiMo != None and len(contra) <= maxiMo:
+        elif miniMo == 0 and maxiMo != None and len(contra) <= maxiMo:
             print("contraseña correcta")
             validacion = True
-        elif miniMo == None and maxiMo == None:
+        elif miniMo == 0 and maxiMo == None:
             print("contraseña correcta")
             validacion = True
         else:
