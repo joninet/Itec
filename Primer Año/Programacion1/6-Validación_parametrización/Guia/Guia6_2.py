@@ -2,14 +2,14 @@
 frase = "Desde niña me encanta mirar la luna, por eso es que le puse de nombre Luna a mi hija"
 
 
-def contarSubcadena(texto, palabra, ignorarMayusculas=" "):
+def contarSubcadena(texto, palabra, ignorarMayusculas=True):
     contador = 0
     if ignorarMayusculas == False:
         buscarM = texto.find(palabra)
         while buscarM != -1:
             contador = contador + 1
             buscarM = texto.find(palabra, buscarM+1)
-    elif ignorarMayusculas == " ":
+    else:
         textoMinuscula = texto.lower()
         buscar = textoMinuscula.find(palabra)
         while buscar != -1:
@@ -20,3 +20,5 @@ def contarSubcadena(texto, palabra, ignorarMayusculas=" "):
 
 print(contarSubcadena(frase, "luna", ignorarMayusculas=False))
 print(contarSubcadena(frase, "luna"))
+
+if ig
