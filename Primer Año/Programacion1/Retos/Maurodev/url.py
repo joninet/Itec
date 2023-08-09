@@ -17,5 +17,5 @@ while buscamos != -1:
             sumamos=sumamos + letra
     lista.append(sumamos)
 buscamos=-1
-print(lista)
+print(sumamos)
 
