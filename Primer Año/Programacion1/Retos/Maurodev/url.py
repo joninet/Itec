@@ -5,6 +5,7 @@
  * Ejemplo: En la url https://retosdeprogramacion.com?year=2023&challenge=0
  * los parámetros serían ["2023", "0"]
  */"""
+<<<<<<< HEAD
 pagina="https://retosdeprogramacion.com?year=2023&challenge=0"
 buscamos=pagina.find("=")
 num="0123456789"
@@ -18,4 +19,17 @@ while buscamos != -1:
     lista.append(sumamos)
 buscamos=-1
 print(sumamos)
+=======
+def param(url):
+    new=url.split("?")[1].split("&")
+    parametros=[]
+    for x in new:
+        definimos=x.split("=")[1]
+        parametros.append(definimos)
+    return parametros
+print(param("https://retosdeprogramacion.com?year=2023&challenge=0"))
+
+
+
+>>>>>>> 316b22267024cf3bcc7c68bfbad23221cd4bdce2
 
