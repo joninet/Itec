@@ -1,12 +1,15 @@
 #input con opciones (Ejemplo: ‘Quiere ingresar datos (si/no)”?)
-from metodos_cadenas import inputInt
-def inputChoice (opciones,msg,):
-    op=opciones.split("/")
-    for rec in range(len(op)):
-        print(f"{rec+1}) {op[rec]}")
-    ing=inputInt(msg, 1,len(op))
-    return op[ing-1]
-q = inputChoice("si/no/a veces","Ingresar una opcion: ")
+from input_int import inputInt
+
+def inputChoice(opciones, pregunta='Elija una opción'):
+    pregunta += ': '
+    listaOpc = opciones.split('/')
+    for i in range(len(listaOpc)):
+        print(f'{i+1}) {listaOpc[i]}')
+    op = inputInt(pregunta, 1, len(listaOpc))
+    return listaOpc[op-1]
+
+q = inputChoice('si/no/a veces')
 print(q)
-r = inputChoice("Rojo/Verde/Amarillo/Negro/Azul", "Ingresar una opcion: ")
+r = inputChoice('rojo/verde/blanco/negro', 'Elija un color')
 print(r)

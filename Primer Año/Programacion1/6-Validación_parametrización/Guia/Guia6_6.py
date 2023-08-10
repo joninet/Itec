@@ -1,6 +1,11 @@
-from metodos_cadenas import inputInt
+from input_int import inputInt
 
-n = inputInt("Ingrese un entero entre 3 y 7: ", 3, 7)
-m = inputInt("Cualquier número real: ")
-maxito = inputInt("Ingresar un entero, maximo=1000: ", maxi=1000)
-minito = inputInt("Ingresar un entero, minimo=1000: ", 1000)
+edad = inputInt('Ingrese su edad: ')
+print(f'Tenés {edad} años') # f-string
+
+n = inputInt('Ingrese un entero entre 3 y 7: ', 3, 7)
+m = inputInt('Cualquier número entero: ')
+maxito = inputInt('ingrese un entero menor a 1000: ', maxi=999)
+minito = inputInt('ingrese un entero mayor a mil: ', 1001)
+
+print(n, m, maxito, minito)

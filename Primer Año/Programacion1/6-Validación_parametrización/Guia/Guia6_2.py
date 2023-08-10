@@ -17,8 +17,11 @@ def contarSubcadena(texto, palabra, ignorarMayusculas=True):
             buscar = textoMinuscula.find(palabra, buscar+1)
     return contador
 
-
+"""def contarSubCadena(f, p, ignorarMayusculas=True):
+    if ignorarMayusculas:
+        f = f.lower()
+        p = p.lower()
+    return f.count(p)
+"""
 print(contarSubcadena(frase, "luna", ignorarMayusculas=False))
 print(contarSubcadena(frase, "luna"))
-
-if ig
