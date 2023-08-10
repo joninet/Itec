@@ -27,11 +27,8 @@ print("Opciones de Paises: Germany - United States - Norway - France")
 inputBusqueda=input("Ingrese otro país además de Argentina: ")
 print(contarPais(personas,inputBusqueda))
 print("Las fechas de nacimiento de las personas cuyo apellido empieza con B")
-for x in personas:
-    inicial="B"
-    contador=0
-    inicialLista=x.split(",")[0][0]
-    fecha=x.split(",")[2]
-    if inicial == inicialLista:
-        print(fecha)
+fechas=fechaNacimiento(personas,"B")
+inputFecha
+for i in fechas:
+    print(i)
               

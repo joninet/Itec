@@ -10,3 +10,12 @@ def contarPais(lista,paisBuscar):
     else:
         resultado= f"No se encuentra el pais {paisBuscar}"
     return resultado
+def fechaNacimiento(lista,letraIni):
+    listaFechas=[]
+    for x in lista:
+        contador=0
+        inicialLista=x.split(",")[0][0]
+        fecha=x.split(",")[2]
+        if letraIni == inicialLista:
+            listaFechas.append(fecha)
+    return listaFechas
