@@ -10,12 +10,20 @@ def contarPais(lista,paisBuscar):
     else:
         resultado= f"No se encuentra el pais {paisBuscar}"
     return resultado
-def fechaNacimiento(lista,letraIni):
-    listaFechas=[]
-    for x in lista:
+def fechaNacimiento(lista):
+    validado=False
+    while not validado:
+        letraIni=input("Ingresar Inicial a buscar: ")
         contador=0
-        inicialLista=x.split(",")[0][0]
-        fecha=x.split(",")[2]
-        if letraIni == inicialLista:
-            listaFechas.append(fecha)
-    return listaFechas
+        if len(letraIni) == 1:
+            for x in lista:
+                inicialLista=x.split(",")[0][0]
+                fecha=x.split(",")[2]
+                if letraIni == inicialLista:
+                    contador+=1
+                    print(fecha)
+            if contador == 0:
+                print(f"No se encontraron nombres con la inicial {letraIni}")
+        else:
+            print("se debe ingresar solo un caracter")
+    return 

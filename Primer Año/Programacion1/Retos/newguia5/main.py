@@ -26,9 +26,6 @@ print(contarPais(personas,"Argentina"))
 print("Opciones de Paises: Germany - United States - Norway - France")
 inputBusqueda=input("Ingrese otro país además de Argentina: ")
 print(contarPais(personas,inputBusqueda))
-print("Las fechas de nacimiento de las personas cuyo apellido empieza con B")
-fechas=fechaNacimiento(personas,"B")
-inputFecha
-for i in fechas:
-    print(i)
+fechas=fechaNacimiento(personas)
+
               
