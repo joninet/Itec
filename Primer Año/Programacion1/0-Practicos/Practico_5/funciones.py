@@ -1,24 +1,21 @@
 def contarPais(lista,paisBuscar):
     contador=0
     resultado=""
-    if paisBuscar == str():
-        for x in lista:
-            pais=x.split(",")[1]
-            if pais == paisBuscar:
-                contador += 1
-        if contador > 0:
-            resultado = f"El país {paisBuscar} tiene {contador} personas."
-        else:
-            resultado= f"No se encuentra el pais {paisBuscar}"
+    for x in lista:
+        pais=x.split(",")[1]
+        if pais == paisBuscar:
+            contador += 1
+    if contador > 0:
+        resultado = f"El país {paisBuscar} tiene {contador} personas."
     else:
-        print("Ingresar solo letras")
+        resultado= f"No se encuentra el pais {paisBuscar}"
     return resultado
 def fechaNacimiento(lista):
     validado=False
     while not validado:
         letraIni=input("Ingresar Inicial a buscar: ")
         contador=0
-        if len(letraIni) == 1 and str():
+        if len(letraIni) == 1:
             listaFechas=[]
             for x in lista:
                 inicialLista=x.split(",")[0][0]
