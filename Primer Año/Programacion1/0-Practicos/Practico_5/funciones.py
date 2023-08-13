@@ -25,11 +25,9 @@ def fechaNacimiento(lista):
                     listaFechas.append(fecha)
                 validado=True
             if contador == 0:
-                print(f"No se encontraron nombres con la inicial {letraIni}")
+                resultado=f"No se encontraron nombres con la inicial {letraIni}"
             else:
-                print(f"Las fechas de nacimiento con la inicial {letraIni} son:")
-                for x in listaFechas:
-                    print(x)
+                resultado= f"Fechas de nacimiento con la inicial {letraIni}\n" + '\n'.join(listaFechas)
         else:
             print("Ingresar solo letras de 1 caracter")
-    return 
+    return resultado

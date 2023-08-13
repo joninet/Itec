@@ -24,7 +24,7 @@ personas = [
 ]
 
 print(contar_ocurrencias_pais(personas, "Argentina"))
-print("Opciones de países: Alemania - Estados Unidos - Noruega - Francia")
+print("Opciones de Paises: Germany - United States - Norway - France")
 pais_busqueda = input("Ingresa otro país además de Argentina: ")
 print(contar_ocurrencias_pais(personas, pais_busqueda))
 

@@ -26,6 +26,6 @@ print(contarPais(personas,"Argentina"))
 print("Opciones de Paises: Germany - United States - Norway - France")
 inputBusqueda=input("Ingrese otro país además de Argentina: ")
 print(contarPais(personas,inputBusqueda))
-fechas=fechaNacimiento(personas)
+print(fechaNacimiento(personas))
 
               

@@ -22,6 +22,6 @@ def fechas_nacimiento_con_inicial(lista_personas, inicial):
     if not fechas_nacimiento:
         resultado = f"No se encontraron nombres con la inicial {inicial}."
     else:
-        resultado = f"Fechas de nacimiento con la inicial {inicial}:\n{', '.join(fechas_nacimiento)}"
+        resultado = f"Fechas de nacimiento con la inicial {inicial}:\n" + "\n".join(fechas_nacimiento)
     
     return resultado
