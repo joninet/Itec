@@ -25,8 +25,20 @@ personas = [
 
 print(contar_ocurrencias_pais(personas, "Argentina"))
 print("Opciones de Paises: Germany - United States - Norway - France")
-pais_busqueda = input("Ingresa otro país además de Argentina: ")
-print(contar_ocurrencias_pais(personas, pais_busqueda))
-
-inicial_busqueda = input("Ingresa una inicial para buscar fechas de nacimiento: ")
-print(fechas_nacimiento_con_inicial(personas, inicial_busqueda))
+validado=False
+while not validado:
+    pais_busqueda = input("Ingresa otro país además de Argentina: ")
+    if pais_busqueda.isalpha():
+        print(contar_ocurrencias_pais(personas, pais_busqueda))
+        validado=True
+    else:
+        print("ERROR - Ingresar solo letras")
+#----------------------
+validado=False
+while not validado:
+    inicial_busqueda = input("Ingresa una inicial para buscar fechas de nacimiento: ")
+    if len(inicial_busqueda) == 1 and inicial_busqueda.isalpha():
+        print(fechas_nacimiento_con_inicial(personas, inicial_busqueda))
+        validado=True
+    else:
+        print("ERROR - ingresar solo letras y de un caracter")

@@ -1,4 +1,4 @@
-from metodos_cadenas import *
+from funciones import *
 
 nacidos2008 = "Eva,17039,f,Daniel,19005,m,Emily,17434,f,Emma,18813,f,Ethan,20216,m,Julia,18616,f,Jacob,22594,m,Joshua,19205,m,Michael,20626,m,Olivia,17081,f"
 nacidos2018 = "Liam,19837,m,Noah,18267,m,Michael,14516,m,James,13525,m,Oliver,13389,m,Emma,18688,f,Olivia,17921,f,Ava,14924,f,Isabella,14464,f,Sophia,13928,f"

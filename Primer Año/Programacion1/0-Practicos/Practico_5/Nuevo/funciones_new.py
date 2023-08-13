@@ -1,5 +1,6 @@
 def contar_ocurrencias_pais(lista_personas, pais_buscar):
     contador = 0
+    pais_buscar=pais_buscar.capitalize()
     for persona in lista_personas:
         pais = persona.split(",")[1]
         if pais == pais_buscar:
@@ -14,6 +15,7 @@ def contar_ocurrencias_pais(lista_personas, pais_buscar):
 
 def fechas_nacimiento_con_inicial(lista_personas, inicial):
     fechas_nacimiento = []
+    inicial=inicial.capitalize()
     for persona in lista_personas:
         inicial_lista = persona.split(",")[0][0]
         if inicial == inicial_lista:
