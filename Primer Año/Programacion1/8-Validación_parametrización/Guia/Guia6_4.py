@@ -3,7 +3,7 @@
 # password2 = inputStr('Password (a lo sumo 5): ', maxi=5)
 # password3 = inputStr('Password (sin rango): ')
 
-def inputStr(msg, miniMo=0, maxiMo=None):
+"""def inputStr(msg, miniMo=0, maxiMo=None):
     validacion = False
     while not validacion:
         contra = input(msg)
@@ -20,8 +20,17 @@ def inputStr(msg, miniMo=0, maxiMo=None):
             print("contraseña correcta")
             validacion = True
         else:
-            print("ingresar una contraseña correcta")
+            print("ingresar una contraseña correcta")"""
 
+def inputStr(msg, mini=0, maxi=10**308):
+    validado = False
+    while not validado:
+        s = input(msg)
+        if mini <= len(s) <= maxi:
+            validado = True
+        else:
+            print(f'Debe tener una longitud entre {mini} y {maxi}') 
+    return s 
 
 # Ejemplo de uso de la función:
 password0 = inputStr('Contraseña (entre 5 y 8 caracteres): ', 5, 8)

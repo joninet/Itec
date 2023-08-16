@@ -1,2 +1,0 @@
-print("joni")
-print("hoka")

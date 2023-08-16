@@ -1,7 +1,19 @@
-def insertarContenido(dirTxt,cont,frase):
-    with open(dirTxt, encoding="utf-8") as archivoTexto:
-        archivoTexto.readline()
-        for x in range(len(cont))
+def insertarContenido(archy, posi, textoAinsertar):
+    with open(archy) as a:
+        t = a.read()
+    with open(archy, 'w') as a:
+        p = t[:posi] + textoAinsertar + t[posi:]
+        print(p)
+        a.write(p)
 
-    
-insertarContenido('7-Archivos/Ejerc_2/ejemplo.txt', 2, 'chau')
+def insertarFila(archy, fila, filaNueva):
+     with open(archy) as a:
+         lineas = a.readlines()
+         filaNueva += '\n'
+         lineas.insert(fila-1, filaNueva)
+         
+     with open(archy, 'w') as a:    
+        a.writelines(lineas)
+
+insertarContenido('pruebas/qqq.txt', 6, 'chau')
+insertarFila('pruebas/qqq.txt', 2, 'fila nueva')

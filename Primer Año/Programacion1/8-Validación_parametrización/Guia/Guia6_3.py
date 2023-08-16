@@ -14,5 +14,19 @@ def promedio(*num, sinNegativos=False):
         prom = contador/cantidad
     return prom
 #------------------------------------------
+"""def promedio(*args, sinNegativos=False):
+    totalTodos = 0
+    totalPositivos = 0
+    contadorPositivos = 0
+    for n in args:
+        if sinNegativos and n >= 0:
+            totalPositivos += n
+            contadorPositivos += 1
+        else:
+            totalTodos += n
+    if sinNegativos:
+        return totalPositivos / contadorPositivos
+    else:
+        return totalTodos / len(args)"""
 print(promedio(121, 65, -88, 34, -9, 27))
 print(promedio(121, 65, -88, 34, -9, 27, sinNegativos=True))
