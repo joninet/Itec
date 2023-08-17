@@ -12,8 +12,13 @@ class Nombres:
         print("Lista completa:")
         for rec in self.lista:
             print(rec)
-
-cantidadIngresar = int(input("Ingrese la cantidad de nombres a cargar: "))
+validado=False
+while not validado:
+    try:
+        cantidadIngresar = int(input("Ingrese la cantidad de nombres a cargar: "))
+        validado=True
+    except:
+        print("Ingresar solo numeros")
 listaN = Nombres(cantidadIngresar)
 listaN.ingresoNombre()
 listaN.listaMostrar()
