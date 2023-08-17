@@ -18,5 +18,24 @@ class Persona:
         else:
             resultado="Mujer"
         return resultado
-personaIngreso=Persona("Jonathan",15,"M")
+
+n=input("ingresar nombre: ")
+validado=False
+while not validado:
+    try:
+        e=int(input("ingresar edad: "))
+        validado=True
+    except:
+        print("Ingresar solo caracteres numericos")
+
+validado=False
+while not validado:
+    s=input("Ingresar Sexo M/F: ")
+    s=s.upper()
+    if len(s) == 1 and s.isalpha() and (s=="M" or s=="F"):
+        validado=True
+    else:
+        print("Ingresar solo M o F")
+
+personaIngreso=Persona(n,e,s)
 print(f"{personaIngreso.mayorEdad()} y es {personaIngreso.verificarSexo()}")
