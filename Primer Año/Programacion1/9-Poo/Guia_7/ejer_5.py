@@ -18,6 +18,5 @@ class Persona:
         else:
             resultado="Mujer"
         return resultado
-personaIngreso=Persona("Jonathan",19,"M")
-print(f"personaIngreso.mayorEdad() ")
-print(personaIngreso.verificarSexo())
+personaIngreso=Persona("Jonathan",15,"M")
+print(f"{personaIngreso.mayorEdad()} y es {personaIngreso.verificarSexo()}")
