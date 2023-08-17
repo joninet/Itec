@@ -19,5 +19,5 @@ class Persona:
             resultado="Mujer"
         return resultado
 personaIngreso=Persona("Jonathan",19,"M")
-print(personaIngreso.mayorEdad)
-
+print(f"personaIngreso.mayorEdad() ")
+print(personaIngreso.verificarSexo())
