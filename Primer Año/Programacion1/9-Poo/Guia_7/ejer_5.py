@@ -30,9 +30,8 @@ while not validado:
 
 validado=False
 while not validado:
-    s=input("Ingresar Sexo M/F: ")
-    s=s.upper()
-    if len(s) == 1 and s.isalpha() and (s=="M" or s=="F"):
+    s=input("Ingresar Sexo M/F: ").upper()
+    if s=="M" or s=="F":
         validado=True
     else:
         print("Ingresar solo M o F")
