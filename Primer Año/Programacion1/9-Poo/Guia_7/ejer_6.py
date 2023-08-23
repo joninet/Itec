@@ -7,16 +7,16 @@ class auto:
     def antiguedadAuto(self):
         antiguedad=2023 - self.año
         if antiguedad >= 5:
-            mayorCinco=f"el auto {self.marca} tiene mas de 5 años"
+            mayorCinco=f"El auto {self.marca} tiene mas de 5 años"
         else:
-            mayorCinco=f"el auto {self.marca} tiene menos 5 años"
+            mayorCinco=f"El auto {self.marca} tiene menos 5 años"
         return mayorCinco
 a=input("Ingresar marca del auto: ")
 validado=False
 while not validado:
     try:
         aA=int(input("ingresar el año: "))
-        valdidado=True
+        validado=True
     except:
         print("Ingresar solo caracteres numericos")
 ingresoAuto=auto(a, aA)

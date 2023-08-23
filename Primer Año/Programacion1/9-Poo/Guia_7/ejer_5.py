@@ -8,16 +8,14 @@ class Persona:
         self.sexo=sexo
     def mayorEdad(self):
         if self.edad >= 18:
-            resultado=f"{self.nombre} es mayor de edad"
+            return f"{self.nombre} es mayor de edad"
         else:
-            resultado=f"{self.nombre} es menor de edad"
-        return resultado
+            return f"{self.nombre} es menor de edad"
     def verificarSexo(self):
         if self.sexo == "M":
-            resultado="Varon"
-        else:
-            resultado="Mujer"
-        return resultado
+            return "Varon"
+        elif self.sexo == "F":
+            return "Mujer"
 
 n=input("ingresar nombre: ")
 validado=False
@@ -38,3 +36,5 @@ while not validado:
 
 personaIngreso=Persona(n,e,s)
 print(f"{personaIngreso.mayorEdad()} y es {personaIngreso.verificarSexo()}")
+otrapersona=Persona("joni",35,"M")
+print(f"{otrapersona.mayorEdad()} y es {otrapersona.verificarSexo()}")
