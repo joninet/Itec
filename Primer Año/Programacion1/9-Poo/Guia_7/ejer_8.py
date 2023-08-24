@@ -12,12 +12,11 @@ class tuAuto(Auto):
         super().__init__(marca, modelo, año)
         self.dueño=dueño
         self.color=color
-        self.lista=[]
     def obtenerColor(self):
         return self.color
     
 listaAutos=[]
-auto1 = tuAuto("Toyota", "Camry", 2020, "Juan", "Rojo")
+auto1 = tuAuto("Toyota", "Corola", 2020, "Juan", "Rojo")
 auto2 = tuAuto("Ford", "Mustang", 2018, "Maria", "Azul")
 auto3 = tuAuto("Chevrolet", "Cruze", 2022, "Pedro", "Rojo")
 listaAutos.append(auto1)
@@ -35,9 +34,3 @@ else:
     print(f"los autos de color {buscarColor} son:")
     for colorAuto in listaColor:
         print(colorAuto)
-
-    
-
-
-
-
