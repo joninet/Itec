@@ -22,15 +22,17 @@ auto3 = tuAuto("Chevrolet", "Cruze", 2022, "Pedro", "Rojo")
 listaAutos.append(auto1)
 listaAutos.append(auto2)
 listaAutos.append(auto3)
-
-buscarColor=input("Ingresar el color a buscar: ")
-listaColor=[]
-for autos in listaAutos:
-    if autos.color == buscarColor:
-        listaColor.append(autos.modelo)
-if len(listaColor) == 0:
-    print("no se encontraron autos de ese color")
-else:
-    print(f"los autos de color {buscarColor} son:")
-    for colorAuto in listaColor:
-        print(colorAuto)
+validado=False
+while not validado:
+    buscarColor=input("Ingresar el color a buscar: ").capitalize()
+    listaColor=[]
+    for autos in listaAutos:
+        if autos.color == buscarColor:
+            listaColor.append(autos.modelo)
+    if len(listaColor) == 0:
+        print("No se encontraron autos de ese color")
+    else:
+        print(f"Los autos de color {buscarColor} son:")
+        for colorAuto in listaColor:
+            print(colorAuto)
+            validado=True
