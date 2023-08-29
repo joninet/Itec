@@ -1,8 +1,14 @@
 #Usando las clases Operacion y Suma, definir otra que se llame Promedio y utilizarla.
 class Operacion(): # clase abstracta: solamente existe para ser heredada NUNCA instanciada
     def pedirNumeros(self):
-        self.n1 = int(input('Ingrese el primer número: '))
-        self.n2 = int(input('Ingrese el segundo número: '))
+        validado=False
+        while not validado:
+            try:
+                self.n1 = int(input('Ingrese el primer número: '))
+                self.n2 = int(input('Ingrese el segundo número: '))
+                validado=True
+            except:
+                print("Ingresar solo numeros")
 
     def operar(self):# método abstracto
         # NO sirve para nada mas que sobreescribirlo (polimorfismo)
