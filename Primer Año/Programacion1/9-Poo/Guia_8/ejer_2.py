@@ -12,12 +12,13 @@ class Cafetera:
     def llenarCafetera(self,cantidad):
         if cantidad < self.cantidadMaxima:
             self.cantidadActual += cantidad
+            return f"Se agrega a la cafetera {cantidad} c.c"
         else:
-            print(f"Lo maximo que soporta la cafetera es de {self.cantidadMaxima}")
+            return f"Lo maximo que soporta la cafetera es de {self.cantidadMaxima} c.c."
     def servirTaza(self,cantidad):
         if cantidad < self.cantidadActual:
             self.cantidadActual-=cantidad
-            return f"se sirvio la taza correctamente"
+            return f"Se sirvio en la taza {cantidad} c.c."
         else:
             return f"la cantidad de la cafetera es de {self.cantidadActual}, ingresar menos cantidad a servir"
     def vaciarCafetera(self):
@@ -26,8 +27,8 @@ class Cafetera:
         return f"la cantidad de la cafetera actual es de {self.cantidadActual}"
 
 ingreso=Cafetera(1000,0)
-ingreso.llenarCafetera(750)
-ingreso.servirTaza(350)
+print(ingreso.llenarCafetera(750))
+print(ingreso.servirTaza(250))
 print(ingreso.mostrarCantidadCafetera())
 ingreso.vaciarCafetera()
 print(ingreso.mostrarCantidadCafetera())
