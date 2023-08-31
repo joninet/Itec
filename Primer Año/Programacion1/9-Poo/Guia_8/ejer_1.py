@@ -19,9 +19,10 @@ class Cuenta:
         else:
             print("Cantidad ingresada mayor al saldo")
     def mostrar(self):
-        return self.dniCliente, self.saldoActual
+        return f"DNI: {self.dniCliente}\nSaldo actual: {self.saldoActual}\ninteres anual: {self.interesAnual}"
     
 ingresoCliente=Cuenta(33054148,23000,98)
+ingresoCliente.actualizarSaldo()
 ingresoCliente.depositar(4000)
 ingresoCliente.retirar(2000)
 print(ingresoCliente.mostrar())

@@ -16,3 +16,4 @@ c = "ABC10034po" // c.isalnum() # True
 ",".join("Hola mundo") # 'H,o,l,a, ,m,u,n,d,o'
 "-----Hola mundo---".strip('-') # 'Hola mundo'
 "Hola mundo".replace('o','0') # 'H0la mund0'
+\n #salto de linea
