@@ -4,33 +4,40 @@
  #Ventana: con métodos para abrirla y cerrarla. 
  #Puerta: con una ventana y métodos para abrir la puerta y cerrar la puerta. 
  #Coche: con un motor, cuatro ruedas y dos puertas;  con los métodos que te parezcan 
-class Motor:
+class Ventana:
+    def __init__(self, ubicacion):
+        self.ubicacion = ubicacion
+        self.estado = "cerrada"
+
+    def abrirVentana(self):
+        self.estado = "abierta"
+        return f"Se abrió la ventana {self.ubicacion}"
+
+    def cerrarPuerta(self):
+        self.estado = "cerrada"
+        return f"Se cerró la ventana {self.ubicacion}"
+
+    def obtenerEstado(self):
+        return f"La ventana {self.ubicacion} está {self.estado}"
+class Puerta(Ventana):  # Puerta hereda de Ventana
+    def __init__(self,):
+        super().__init__()
+
+    def abrirPuerta(self):
+        self.estado = "abierta"
+        return f"Se abrió la puerta {self.ubicacion}"
+
+    def cerrarPuerta(self):
+        self.estado = "cerrada"
+        return f"Se cerró la puerta {self.ubicacion}"
+
+    def obtenerEstado(self):
+        return f"La puerta {self.ubicacion} está {self.estado}"
+
+
+class Auto():
     def __init__(self):
-        self.encendido=False
-    def arrancarMotor(self):
-        if not self.encendido:
-            self.encendido=True
-            return f"El motor se encendio correctamente"
-        else:
-            return f"El motor ya esta encendido"
-    def apagarMotor(self):
-        if self.encendido:
-            self.encendido=False
-            return f"El motor se apago correctamente"
-        else:
-            return f"El motor ya esta apagado"
-class Rueda:
-    def __init__(self):
-        self.Inflado=False
-    def inflarRueda(self):
-        if not self.Inflado:
-            self.Inflado=True
-            return f"Se inflaron las ruedas correctamente"
-        else:
-            return f"las ruedas ya estan infladas"
-    def desinflarRuedas(self):
-        if self.Inflado:
-            self.Inflado=False
-            return f"Se desinflaron las ruedas correctamente"
-        else:
-            return f"las ruedas ya estan desinfladas"    
+        self.puertaIzquierda = Puerta("izquierda")
+        self.puertaDerecha = Puerta("derecha")
+
+fiesta = Auto()
