@@ -42,17 +42,15 @@ class Asignatura:
         
     def consultaAsignatura(self):
         return self.nombre
-"""Implementar la clase Alumno que incluya una colección de Asignaturas a las que el alumno ha asistido. Además de incluir los atributos nombre y edad. Las operaciones disponibles sobre el alumno son:
-Constructor que acepte como parámetro el nombre del alumno y edad.
-Métodos para modificar el nombre (setNombre) y para consultarlo (getNombre).
-Métodos para modificar y consultar la edad.
-Método que nos devuelva el promedio del alumno."""
+
 class Alumno(Asignatura):
     def __init__(self, nombre,nota,nombreAlumno,edadAlumno):
         super().__init__(nombre,nota)
         self.nombreAlumno=nombreAlumno
         self.edadAlumno=edadAlumno
         self.listaMaterias=[]
+        agregar=Asignatura(nombre,nota)
+        self.listaMaterias.append(agregar)
 
     def setNombre(self,nuevoNombreAlumno):
         self.nombreAlumno=nuevoNombreAlumno
@@ -67,22 +65,51 @@ class Alumno(Asignatura):
     def getEdad(self):
         return self.edadAlumno
     
-    def agregarAsignaturasLista(self,nombre,nota):
-        agregar=Asignatura(nombre,nota)
-        self.listaMaterias.append(agregar)
-        return f"Asignatura agregada a la lista"
-    
+    def agregarAsignaturasLista(self, nombre, nota):
+        
+        nueva_asignatura = Asignatura(nombre, nota)
+
+        for asignatura in self.listaMaterias:
+            if asignatura.nombre == nombre:
+                return print(f"La asignatura {asignatura.nombre} ya se encuentra en la lista")
+        
+        self.listaMaterias.append(nueva_asignatura)
+        return print(f"Asignatura {nombre} agregada a la lista")
+
     def Promedio(self):
         sumaNotas=0
         for notas in self.listaMaterias:
             sumaNotas += notas.getNota()
         return sumaNotas / len(self.listaMaterias)
-
-joni=Alumno("Ingles",7,"Jonathan",35)
-joni.agregarAsignaturasLista("matematica",3)
-joni.agregarAsignaturasLista("lengua",6)
-print(joni.Promedio())
-print(joni.getNota(),joni.aprobadoReprobado(),joni.consultaAsignatura(),joni.setEdad(34),joni.getEdad())
-        
     
+    def imprimirAsignaturas(self):
+        print(f"Asignaturas que curso:")
+        for asignatura in self.listaMaterias:
+            estado=asignatura.aprobadoReprobado()
+            print(f"{asignatura.nombre}, Nota: {asignatura.nota}, Estado: {estado}")
+        print(f"Promedio: {self.Promedio()}")
+
+alumno1=Alumno("Ingles",7,"Jonathan",13)
+alumno1.agregarAsignaturasLista("Matematica",3)
+alumno1.agregarAsignaturasLista("Lengua",6)
+print(f"Nombre: {alumno1.nombreAlumno}")
+print(f"Edad: {alumno1.edadAlumno}")
+alumno1.imprimirAsignaturas()
+print("-------------------------")
+
+alumno2=Alumno("Ingles",7,"Juan",14)
+alumno2.agregarAsignaturasLista("Matematica",7)
+alumno2.agregarAsignaturasLista("Lengua",2)
+print(f"Nombre: {alumno2.nombreAlumno}")
+print(f"Edad: {alumno2.edadAlumno}")
+alumno2.imprimirAsignaturas()
+print("-------------------------")
+    
+alumno3=Alumno("Ingles",3,"Fernanda",14)
+alumno3.agregarAsignaturasLista("Matematica",7)
+alumno3.agregarAsignaturasLista("Lengua",10)
+print(f"Nombre: {alumno3.nombreAlumno}")
+print(f"Edad: {alumno3.edadAlumno}")
+alumno3.imprimirAsignaturas()
+print("-------------------------")
 
