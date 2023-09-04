@@ -71,3 +71,23 @@ cliente1.alquilerProducto(productosLista[1],"07/09/1987","09/09/1987",200)
 cliente1.alquilerProducto(productosLista[2],"07/09/1987","09/09/1987",200)
 #muesto productos
 cliente1.mostrarProductos()
+"""Lista productos
+– Añadir producto
+– Ficha producto
+– Lista clientes
+– Añadir cliente
+– Ficha cliente
+– Alquiler producto"""
+print(f"Elegir opcion:\n1) Lista productos\n2) Añadir Producto\n3) Ficha producto\n4) Lista Clientes\n5) Añadir cliente\n6) Ficha cliente\n7) Alquilar Producto")
+opcion=int(input("N°: "))
+validado=False
+while not validado:
+    if opcion == 1:
+        print("Lista de Productos: ")
+        for rec in productosLista:
+            print(rec.Titulo)
+        validado=True
+    elif opcion == 2:
+        print("no hay nada")
+    elif opcion == 3:
+        print("no hay nada")
