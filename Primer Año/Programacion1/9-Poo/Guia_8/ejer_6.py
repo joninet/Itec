@@ -88,6 +88,16 @@ while not validado:
             print(rec.Titulo)
         validado=True
     elif opcion == 2:
+        Titulo, Precio, Plazo, estadoAlquiler, Genero, Año, Director, Protagonista
+        titulo=input("Ingrese Titulo: ")
+        precio=input("Ingrese Precio: ")
+        plazo=input("Ingrese Plazo: ")
+        estado=input("Ingrese Estado: ")
+        genero=input("Ingrese Genero: ")
+        año=input("Ingrese Año: ")
+        director=input("Ingrese Director: ")
+        titulo=input("Ingrese Titulo:")
+
         print("no hay nada")
     elif opcion == 3:
         print("no hay nada")
