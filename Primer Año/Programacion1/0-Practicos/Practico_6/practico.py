@@ -54,11 +54,6 @@ class Jaula:
             años = lista.esAdulto()
             datos.append(años)
         return datos
-    
-            
-
-
-        
 
 
 cargaPumas = [(230, 6), (180, 4), (210, 7), (190, 10)]
