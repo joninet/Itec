@@ -91,7 +91,7 @@ class Alumno(Asignatura):
 
 alumno1=Alumno("Ingles",7,"Jonathan",13)
 alumno1.agregarAsignaturasLista("Matematica",3)
-alumno1.agregarAsignaturasLista("Lengua",6)
+alumno1.agregarAsignaturasLista("Ingles",6)
 print(f"Nombre: {alumno1.nombreAlumno}")
 print(f"Edad: {alumno1.edadAlumno}")
 alumno1.imprimirAsignaturas()
