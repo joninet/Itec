@@ -1,4 +1,5 @@
 import random
+print(hola)
 
 # Palabras a adivinar
 palabras = ['gato', 'perro', 'elefante', 'jirafa', 'leon', 'tigre', 'rinoceronte', 'hipopotamo']
