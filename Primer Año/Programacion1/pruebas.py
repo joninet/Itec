@@ -71,4 +71,3 @@ alumno1.agregarAsignatura()
 alumno1.agregarAsignatura()
 alumno1.mostrarTodo()
 alumno1.Promedio()
-    
