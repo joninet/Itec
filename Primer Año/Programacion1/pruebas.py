@@ -1,4 +1,6 @@
 from dataclasses import dataclass
+hola="h8ola"
+print(hola.isalpha())
 @dataclass
 class Asignatura:
     nombre: str
