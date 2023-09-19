@@ -1,74 +1,63 @@
-from dataclasses import dataclass
-@dataclass
-class Asignatura:
-    nombre: str
-    nota: int
-    def setNota(self,notaNueva):
-        self.nota=notaNueva
-        return f"Se modifico la nota"
-    def getNota(self):
-        return self.nota
-    def Calificacion (self):
-        if self.nota >= 4:
-            return f"Aprobado"
+class Animal():
+    def __init__(self, id, peso) -> None:
+        self.id = id
+        self.peso = peso
+    
+    def salud(self, pesoSano):
+        return 'sano' if self.peso >= pesoSano else 'enfermo' 
+
+class Puma(Animal):
+    def __init__(self, id, peso,edad) -> None:
+        super().__init__(id, peso)
+        self.edad = edad
+        self.pesoSano = 200
+    
+    def esAdulto(self):
+        if self.edad >= 5:
+            return True
+
+    def __str__(self):
+        return f"# {self.id} - {self.salud(self.pesoSano)}"    
+   
+class Venado(Animal):
+    def __init__(self, identificador, peso) -> None:
+        super().__init__(identificador, peso)            
+        self.pesoSano = 120
+
+    def __str__(self):
+        return f"# {self.id} - {self.salud(self.pesoSano)}"    
+
+class Jaula():
+    def __init__(self, animal, cantidad) -> None:
+        self.listaAnimales = []
+        self.animal = animal
+        if animal == "Pumas":
+            datosPumas = [(230, 6), (180, 4), (210, 7), (190, 10)]
+            for i,elemento in enumerate(datosPumas,start = 1):
+                puma = Puma(i,elemento[0],elemento[1])
+                self.listaAnimales.append(puma)
         else:
-            return f"desaprobado"
-    def getNombre(self):
-        return self.nombre
-    
-@dataclass
-class Alumno:
-    nombre: str
-    edad: int
-    listaAsignaturas=[]
-    def setNombre(self,nombreNuevo):
-        self.nombre=nombreNuevo
-        return f"Se modifico el nombre"
-    def getNombre(self):
-        return self.nombre
-    def setEdad(self,edadNuevo):
-        self.edad=edadNuevo
-        return f"Se modifico la edad"
-    def getNombre(self):
-        return self.edad
-    def Promedio(self):
-        promedio=0
-        for recnota in self.listaAsignaturas:
-            promedio+=recnota.nota
-            return promedio / len(self.listaAsignaturas)
-    def agregarAsignatura(self):
-        validado=False
-        while not validado:
-            asigNueva=input("Ingresar asignatura nueva: ").lower()
-            if asigNueva.isalpha():
-                for asignatura in self.listaAsignaturas:
-                    if asigNueva == asignatura.nombre:
-                        return print(f"la asignatura ya existe")
-                validado=False
-                while not validado:
-                    try:
-                        notaNueva=int(input("Ingresar Nota: "))
-                        agregoAsig=Asignatura(asigNueva,notaNueva)
-                        self.listaAsignaturas.append(agregoAsig)
-                        return print(f"Agregada correctamente")
-                        validado=True
-                    except:
-                        print("Ingresar solo numeros")
-            else:
-                print("Ingresar solo letras")
-    def mostrarTodo(self):
-        print(f"Nombre Alumno: {self.nombre}")
-        print(f"Edad: {self.edad}")
-        print("Asignaturas que curso:")
-        for asignatura in self.listaAsignaturas:
-            print(f"Nombre: {asignatura.nombre}")
-            print(f"Nota: {asignatura.nota}")
-            print(f"{asignatura.Calificacion()}")
-    
-alumno1=Alumno("jonathan",35)
-alumno1.agregarAsignatura()
-alumno1.agregarAsignatura()
-alumno1.agregarAsignatura()
-alumno1.mostrarTodo()
-alumno1.Promedio()
-    
+            datosVenados = [100,130]
+            for i,elemento in enumerate(datosVenados,start = 1):
+                venado = Venado(i,elemento)
+                self.listaAnimales.append(venado)
+
+    def cantidadAdultos(self):
+        c = 0
+        for puma in self.listaAnimales:
+            if puma.esAdulto():
+                c += 1
+        return c
+
+    def datos(self):
+        print()
+        print(f'Jaula de {self.animal}')
+        for elemento in self.listaAnimales:
+            print(elemento)
+        if self.animal == 'Pumas':
+            print(f'Cantidad de adultos: {self.cantidadAdultos()}')        
+
+jaulaPumas = Jaula("Pumas",4)
+jaulaPumas.datos()
+jaulaVenados = Jaula("Venados",2)
+jaulaVenados.datos()
