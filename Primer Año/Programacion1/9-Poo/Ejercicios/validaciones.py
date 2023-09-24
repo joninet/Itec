@@ -2,7 +2,7 @@ def validPhone(msg):
     validado=False
     while not validado:
         try:
-            phone=int(input(msg))
+            phone=int(input("Enter the phone: "))
             validado=True
         except:
             print("Enter valid number")
@@ -11,7 +11,7 @@ def validPhone(msg):
 def validEmail(msg):
     validado=False
     while not validado:
-        email=input(msg)
+        email=input("Enter the Email: ")
         if "@" in email and "." in email:
             validado=True
             print("successfully added")

@@ -30,6 +30,8 @@ class App:
         print("Contact list")
         for x in self.contactList:
             print(f"Id: {x.id}, Name: {x.name}, Phone: {x.phone}, Email: {x.email}")
+        print("------------")
+        menuOptions()
 
     def contactSearch(self):
         search=input("Enter name to search: ")
@@ -40,6 +42,8 @@ class App:
                 contador+=1
         if contador==0:
             print("no search result")
+        print("------------")
+        menuOptions()
 
     def modifyContact(self):
         try:
@@ -67,5 +71,6 @@ class App:
                 print("Enter a correct number")
         except:
             print("Only integers")
-    
+        print("------------")
+        menuOptions()
 
