@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from validaciones import*
-from app_menu import*
 
 @dataclass
 class Contact:
@@ -93,7 +92,6 @@ def menuOptions():
                 print("Numero fuera de rango")
     except:
         print("Ingresar solo Numeros enteros")
-
 def returnSearch():
     print("Options:")
     print("1 - Return")

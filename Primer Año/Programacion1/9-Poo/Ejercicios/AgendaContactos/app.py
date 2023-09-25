@@ -1,4 +1,5 @@
-from contactos import App
+from validaciones import*
+from contactos import*
 def menuOptions():
     print("Options:")
     print("1 - Contact Add")
@@ -27,21 +28,4 @@ def menuOptions():
     except:
         print("Ingresar solo Numeros enteros")
 
-def returnSearch():
-    print("Options:")
-    print("1 - Return")
-    print("2 - Exit")
-    try:
-        option = int(input("Enter option number: "))
-        validado = False
-        while not validado:
-            if option == 1:
-                menuOptions()
-                validado = True
-            elif option == 2:
-                validado = True
-            else:
-                print("Numero fuera de rango")
-                option = int(input("Enter option number: "))
-    except ValueError:
-        print("Ingresar solo números enteros")
+menuOptions()
