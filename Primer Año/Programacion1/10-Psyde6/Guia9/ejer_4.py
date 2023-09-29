@@ -9,8 +9,10 @@ class MainWindow(QMainWindow):
         #Configuracion de la ventana
         layout = QVBoxLayout()
         #creamos las etiquetas y botones
-        self.texto = QLabel('Ingresar frase')
-        self.entrada = QLineEdit()
+        self.texto = QLabel('Ingresar 10 numeros')
+        for x in range(10):
+            self.num = QLineEdit()
+        
         boton = QPushButton('Enviar')
         centralWidget = QWidget()
         self.cantidadVocales = QLabel('Cantidad de vocales')
@@ -18,29 +20,31 @@ class MainWindow(QMainWindow):
 
         #agregamos etiquetas y botonos al layout
         layout.addWidget(self.texto)
-        layout.addWidget(self.entrada)
+        layout.addWidget(self.num)
         boton.setDefault(True)
         layout.addWidget(boton)
-        boton.clicked.connect(self.contarVocales)
+        boton.clicked.connect(self.mayoresVeintitres)
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
-        layout.addWidget(self.cantidadVocales)
+        layout.addWidget(self.mayoresVeintitres)
         layout.addWidget(self.resultado)
 
         #CSS para editar
-        self.entrada.setStyleSheet("QLineEdit {font-family: Arial; color: black; background: transparent; border: none; border-bottom: 1px solid black; font-size: 14px;}")
-        self.boton.setStyleSheet("QPushButton {font-family: Arial; color: white; background-color: black; border-radius: 15px;}")
-        self.boton.setStyleSheet("QPushButton:hover {border: 2px solid red; background-color: white; color: black;}")
-    
-    def contarVocales(self):
-        vocales="aeiou"
-        contador=0
-        for x in range(len(self.entrada.text())):
-            letra=self.entrada.text()[x]
-            print(letra)
-            if letra in vocales:
-                contador+=1
-        self.resultado.setText(f'{contador}')
+        self.num.setStyleSheet("QLineEdit {font-family: Arial; color: black; background: transparent; border: none; border-bottom: 1px solid black; font-size: 14px;}")
+        self.boton.setStyleSheet(
+        """
+        QPushButton {font-family: Arial; color: white; background-color: black; border-radius: 15px;}
+        QPushButton:hover {border: 2px solid red; background-color: white; color: black;}
+        """
+)
+    def mayoresVeintitres(self):
+        numeros=self.findChildren(QLineEdit)
+        numerosLista=[]
+        for x in numeros:
+            if x < 23:
+                numerosLista.append(x)
+        return self.resultado.setText(f'{str(numerosLista)}')
+
 
 if __name__ == '__main__':
     app = QApplication()

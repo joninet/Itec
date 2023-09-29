@@ -7,24 +7,33 @@ class MainWindow(QMainWindow):
         super().__init__()
 
         layout = QVBoxLayout()
-        self.texto = QLabel('hola')
-        layout.addWidget(self.texto)
-        self.entrada = QLineEdit()
-        layout.addWidget(self.entrada)
-        boton = QPushButton('enviar')
+        for _ in range(3):
+            #self.entrada = QLineEdit()
+            #layout.addWidget(self.entrada)
+            layout.addWidget(QLineEdit())
+
+        boton = QPushButton('Recolectar')
         boton.setDefault(True)
         layout.addWidget(boton)
-        boton.clicked.connect(self.joni)
+
+        self.salida = QLabel()
+        layout.addWidget(self.salida)
+
+        boton.clicked.connect(self.reco)
+        
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-    def joni(self):
-        self.texto.setText(f'Hola {self.entrada.text()}')
+    def reco(self):
+        s = ''
+        for cajaTexto in self.findChildren(QLineEdit):
+            s += cajaTexto.text()
+        self.salida.setText(s)
 
 if __name__ == '__main__':
     app = QApplication()
-    css = '*{font-size: 20px; background-color: #c6f5c7; color: #850a30;}'
+    css = '*{font-size: 50px; background-color: #c6f5c7; color: #850a30;}'
     app.setStyleSheet(css)
     window = MainWindow()
     window.show()
