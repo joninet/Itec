@@ -11,7 +11,7 @@ class MainWindow(QMainWindow):
         #creamos las etiquetas y botones
         self.texto = QLabel('Ingresar frase')
         self.entrada = QLineEdit()
-        boton = QPushButton('Enviar')
+        self.boton = QPushButton('Enviar')
         centralWidget = QWidget()
         self.cantidadVocales = QLabel('Cantidad de vocales')
         self.resultado = QLabel('')
@@ -19,9 +19,9 @@ class MainWindow(QMainWindow):
         #agregamos etiquetas y botonos al layout
         layout.addWidget(self.texto)
         layout.addWidget(self.entrada)
-        boton.setDefault(True)
-        layout.addWidget(boton)
-        boton.clicked.connect(self.contarVocales)
+        self.boton.setDefault(True)
+        layout.addWidget(self.boton)
+        self.boton.clicked.connect(self.contarVocales)
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
         layout.addWidget(self.cantidadVocales)
@@ -29,8 +29,12 @@ class MainWindow(QMainWindow):
 
         #CSS para editar
         self.entrada.setStyleSheet("QLineEdit {font-family: Arial; color: black; background: transparent; border: none; border-bottom: 1px solid black; font-size: 14px;}")
-        self.boton.setStyleSheet("QPushButton {font-family: Arial; color: white; background-color: black; border-radius: 15px;}")
-        self.boton.setStyleSheet("QPushButton:hover {border: 2px solid red; background-color: white; color: black;}")
+        self.boton.setStyleSheet(
+        """
+        QPushButton {font-family: Arial; color: white; background-color: #472B31; border-radius: 15px;}
+        QPushButton:hover {border: 2px solid #472B31; background-color: #472B39; color: black;}
+        """
+)
     
     def contarVocales(self):
         vocales = "aeiou"
@@ -39,7 +43,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication()
-    css = '*{font-size: 20px; background-color: #c6f5c7; color: #850a30;}'
+    css = '*{font-size: 20px; background-color: #ffffff; color: #850a30;}'
     app.setStyleSheet(css)
     window = MainWindow()
     window.show()

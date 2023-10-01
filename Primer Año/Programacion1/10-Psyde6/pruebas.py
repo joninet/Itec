@@ -1,40 +1,26 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
-from PySide6.QtGui import QFont
-from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
 
-class MainWindow(QMainWindow):
+class Ventana1(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle('Ventana 1')
+        button = QPushButton('Botón en Ventana 1', self)
+        button.move(50, 50)
 
-        layout = QVBoxLayout()
-        for _ in range(3):
-            #self.entrada = QLineEdit()
-            #layout.addWidget(self.entrada)
-            layout.addWidget(QLineEdit())
-
-        boton = QPushButton('Recolectar')
-        boton.setDefault(True)
-        layout.addWidget(boton)
-
-        self.salida = QLabel()
-        layout.addWidget(self.salida)
-
-        boton.clicked.connect(self.reco)
-        
-        centralWidget = QWidget()
-        centralWidget.setLayout(layout)
-        self.setCentralWidget(centralWidget)
-
-    def reco(self):
-        s = ''
-        for cajaTexto in self.findChildren(QLineEdit):
-            s += cajaTexto.text()
-        self.salida.setText(s)
+class Ventana2(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle('Ventana 2')
+        button = QPushButton('Botón en Ventana 2', self)
+        button.move(50, 50)
 
 if __name__ == '__main__':
-    app = QApplication()
-    css = '*{font-size: 50px; background-color: #c6f5c7; color: #850a30;}'
-    app.setStyleSheet(css)
-    window = MainWindow()
-    window.show()
+    app = QApplication([])
+    
+    ventana1 = Ventana1()
+    ventana1.show()
+
+    ventana2 = Ventana2()
+    ventana2.show()
+    
     app.exec()
