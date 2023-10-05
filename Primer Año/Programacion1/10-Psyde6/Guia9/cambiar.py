@@ -24,7 +24,7 @@ class VentanaPromedio(QMainWindow):
 
         # Agregar widgets al layout
         layout.addWidget(self.texto)
-        for fecha, nombre in zip(self.lista_Fecha, self.lista_nombres):
+        for fecha, nombre in zip(self.lista_Fecha, self.lista_nombres):#es lo mismo que hacer un for para cada lista para recorrerla
             layout.addWidget(nombre)
             layout.addWidget(fecha)
         layout.addWidget(self.boton)
@@ -36,21 +36,29 @@ class VentanaPromedio(QMainWindow):
         self.setCentralWidget(centralWidget)
 
     def Fechas(self):
-        listaMayor = []  # Lista para almacenar los nombres de personas mayores de 18 años
+        listaMayor = []  
         aH = 2023
         mH = 6
         dH = 3
 
+        nombres = [nombre.text() for nombre in self.lista_nombres]  
+        #es lo mismo que hacer esto
+        #nombres = []
+        #for nombre in self.lista_nombres:
+            #nombres.append(nombre.text())
+
+        
+
         for rec in range(len(self.lista_Fecha)):
-            reco = self.lista_Fecha[rec].text()  # Obtener el texto del campo de fecha
+            reco = self.lista_Fecha[rec].text()  
             aD, aM, aA = reco.split("/")
             edad = aH - int(aA)
             if int(aM) > mH or int(aM) == mH and int(aD) > dH:
                 edad -= 1
             if edad >= 18:
-                listaMayor.append(nombres[rec])  # Agregar el nombre a la lista de personas mayores
+                listaMayor.append(nombres[rec])  
 
-        resultado_texto = ', '.join(listaMayor)  # Unir los nombres en una cadena
+        resultado_texto = ', '.join(listaMayor)  
         self.resultado.setText(resultado_texto)
 
 
