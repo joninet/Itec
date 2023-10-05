@@ -10,23 +10,23 @@ class VentanaPromedio(QMainWindow):
 
         # Crear etiquetas, botones y listas
         self.texto = QLabel('Ingresar edades y nombres')
-        self.lista_edades = []
+        self.lista_Fecha = []
         self.lista_nombres = []
         for _ in range(self.cantidad):
-            self.lista_edades.append(QLineEdit())
-            self.lista_nombres.append(QLineEdit())
+            self.lista_nombres.append(QLineEdit("Nombre"))
+            self.lista_Fecha.append(QLineEdit("xx/xx/xxxx"))
 
         self.boton = QPushButton('Enviar')
         self.boton.setDefault(True)
-        self.boton.clicked.connect(self.promedioEdades)
+        self.boton.clicked.connect(self.Fechas)
 
         self.resultado = QLabel('')
 
         # Agregar widgets al layout
         layout.addWidget(self.texto)
-        for edad, nombre in zip(self.lista_edades, self.lista_nombres):
-            layout.addWidget(edad)
+        for fecha, nombre in zip(self.lista_Fecha, self.lista_nombres):
             layout.addWidget(nombre)
+            layout.addWidget(fecha)
         layout.addWidget(self.boton)
         layout.addWidget(self.resultado)
 
@@ -35,23 +35,24 @@ class VentanaPromedio(QMainWindow):
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-    def promedioEdades(self):
-        lista_edades = []
-        lista_nombres = []
-        contador = 0
+    def Fechas(self):
+        listaMayor = []  # Lista para almacenar los nombres de personas mayores de 18 años
+        aH = 2023
+        mH = 6
+        dH = 3
 
-        for edad, nombre in zip(self.lista_edades, self.lista_nombres):
-            edad_valor = int(edad.text())
-            lista_edades.append(edad_valor)
-            lista_nombres.append(nombre.text())
+        for rec in range(len(self.lista_Fecha)):
+            reco = self.lista_Fecha[rec].text()  # Obtener el texto del campo de fecha
+            aD, aM, aA = reco.split("/")
+            edad = aH - int(aA)
+            if int(aM) > mH or int(aM) == mH and int(aD) > dH:
+                edad -= 1
+            if edad >= 18:
+                listaMayor.append(nombres[rec])  # Agregar el nombre a la lista de personas mayores
 
-        for x in lista_edades:
-            contador += x
-
-        promedio = contador / len(lista_edades)
-        nombres_completos = ', '.join(lista_nombres)
-        resultado_texto = f'Promedio de edades: {promedio}\nNombres ingresados: {nombres_completos}'
+        resultado_texto = ', '.join(listaMayor)  # Unir los nombres en una cadena
         self.resultado.setText(resultado_texto)
+
 
 class VentanaPrincipal(QMainWindow):
     def __init__(self):
