@@ -1,5 +1,4 @@
-#Cargar en listas los nombres y fechas de nacimiento de varias personas, luego recorrerlo y mostrar los nombres de los mayores de edad.
-
+#Pedir nombres y sexo de personas y mostrar al final el total de mujeres y el nombre de cada una.
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
 
 class VentanaPromedio(QMainWindow):
@@ -9,57 +8,51 @@ class VentanaPromedio(QMainWindow):
         layout = QVBoxLayout()
 
         # Crear etiquetas, botones y listas
-        self.texto = QLabel('Ingresar edades y nombres')
-        self.lista_Fecha = []
-        self.lista_nombres = []
+        self.texto = QLabel('Ingresar nombres y sexos')
+        self.listaSexo = []
+        self.listaNombres = []
         for _ in range(self.cantidad):
-            self.lista_nombres.append(QLineEdit("Nombre"))
-            self.lista_Fecha.append(QLineEdit("xx/xx/xxxx"))
+            self.nombreLabel = QLabel('Nombre')
+            self.listaNombres.append(QLineEdit(f"Nombre {_+1}"))
+            self.SexoLabel = QLabel(f"Sexo")
+            self.listaSexo.append(QLineEdit(f"M/F"))
 
         self.boton = QPushButton('Enviar')
         self.boton.setDefault(True)
-        self.boton.clicked.connect(self.Fechas)
-
+        self.boton.clicked.connect(self.Mujeres)
+        self.resultadoA = QLabel('Nombre de las Mujeres:')
         self.resultado = QLabel('')
+        self.resultadoB = QLabel('Cantidad')
+        self.cantidad = QLabel('')
 
         # Agregar widgets al layout
         layout.addWidget(self.texto)
-        for fecha, nombre in zip(self.lista_Fecha, self.lista_nombres):#es lo mismo que hacer un for para cada lista para recorrerla
+
+        for sexo, nombre in zip(self.listaSexo, self.listaNombres):#es lo mismo que hacer un for para cada lista para recorrerla
             layout.addWidget(nombre)
-            layout.addWidget(fecha)
+            layout.addWidget(sexo)
         layout.addWidget(self.boton)
+        layout.addWidget(self.resultadoA)
         layout.addWidget(self.resultado)
+        layout.addWidget(self.resultadoB)
+        layout.addWidget(self.cantidad)
 
         # Configurar el widget central de la ventana
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-    def Fechas(self):
-        listaMayor = []  
-        aH = 2023
-        mH = 6
-        dH = 3
-
-        nombres = [nombre.text() for nombre in self.lista_nombres]  
-        #es lo mismo que hacer esto
-        #nombres = []
-        #for nombre in self.lista_nombres:
-            #nombres.append(nombre.text())
-
-        
-
-        for rec in range(len(self.lista_Fecha)):
-            reco = self.lista_Fecha[rec].text()  
-            aD, aM, aA = reco.split("/")
-            edad = aH - int(aA)
-            if int(aM) > mH or int(aM) == mH and int(aD) > dH:
-                edad -= 1
-            if edad >= 18:
-                listaMayor.append(nombres[rec])  
-
-        resultado_texto = ', '.join(listaMayor)  
-        self.resultado.setText(resultado_texto)
+    def Mujeres(self):
+        listaMujeres = []  
+        for x in range(len(self.listaSexo)):
+            sexo=self.listaSexo[x].text()  
+            if sexo == "F":
+                mujerNombre=self.listaNombres[x].text()
+                listaMujeres.append(mujerNombre)
+        resultadoMujeres = ', '.join(listaMujeres)  
+        self.resultado.setText(resultadoMujeres)
+        cantidadLista=str(len(listaMujeres))
+        self.cantidad.setText(cantidadLista)
 
 
 class VentanaPrincipal(QMainWindow):

@@ -1,65 +1,58 @@
-#Cargar en listas los nombres y fechas de nacimiento de varias personas, luego recorrerlo y mostrar los nombres de los mayores de edad.
-
+#Dada una lista de nombres y de salarios respectivos, determinar el salario mínimo  y mostrar el nombre de la persona que menos gana.
 from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
 
 class VentanaPromedio(QMainWindow):
     def __init__(self, cantidad):
         super().__init__()
-        self.cantidad = cantidad
+        self.perSalMin = cantidad
         layout = QVBoxLayout()
 
         # Crear etiquetas, botones y listas
-        self.texto = QLabel('Ingresar edades y nombres')
-        self.lista_Fecha = []
-        self.lista_nombres = []
-        for _ in range(self.cantidad):
-            self.lista_nombres.append(QLineEdit("Nombre"))
-            self.lista_Fecha.append(QLineEdit("xx/xx/xxxx"))
+        self.texto = QLabel('Ingresar nombre y salario')
+        self.listaSalario = []
+        self.listaNombres = []
+        for _ in range(self.perSalMin):
+            self.nombreLabel = QLabel('Nombre')
+            self.listaNombres.append(QLineEdit(f"Nombre {_+1}"))
+            self.SexoLabel = QLabel(f"Salario")
+            self.listaSalario.append(QLineEdit())
 
         self.boton = QPushButton('Enviar')
         self.boton.setDefault(True)
-        self.boton.clicked.connect(self.Fechas)
-
+        self.boton.clicked.connect(self.Mujeres)
+        self.resultadoA = QLabel('Persona de la que menos gana:')
         self.resultado = QLabel('')
+        self.resultadoB = QLabel('Salario minimo')
+        self.perSalMin = QLabel('')
 
         # Agregar widgets al layout
         layout.addWidget(self.texto)
-        for fecha, nombre in zip(self.lista_Fecha, self.lista_nombres):#es lo mismo que hacer un for para cada lista para recorrerla
+
+        for salario, nombre in zip(self.listaSalario, self.listaNombres):#es lo mismo que hacer un for para cada lista para recorrerla
             layout.addWidget(nombre)
-            layout.addWidget(fecha)
+            layout.addWidget(salario)
         layout.addWidget(self.boton)
+        layout.addWidget(self.resultadoA)
         layout.addWidget(self.resultado)
+        layout.addWidget(self.resultadoB)
+        layout.addWidget(self.perSalMin)
 
         # Configurar el widget central de la ventana
         centralWidget = QWidget()
         centralWidget.setLayout(layout)
         self.setCentralWidget(centralWidget)
 
-    def Fechas(self):
-        listaMayor = []  
-        aH = 2023
-        mH = 6
-        dH = 3
+    def Mujeres(self):
+        salarioMinimo = 100000000000000000000000000000
+        personaNombre=""
+        for x in range(len(self.listaSalario)):
+            salarioMin=int(self.listaSalario[x].text())
+            if salarioMin < salarioMinimo:
+                salarioMinimo=salarioMin
+                personaNombre=self.listaNombres[x].text()
+        self.perSalMin.setText(str(salarioMinimo))
+        self.resultado.setText(personaNombre)
 
-        nombres = [nombre.text() for nombre in self.lista_nombres]  
-        #es lo mismo que hacer esto
-        #nombres = []
-        #for nombre in self.lista_nombres:
-            #nombres.append(nombre.text())
-
-        
-
-        for rec in range(len(self.lista_Fecha)):
-            reco = self.lista_Fecha[rec].text()  
-            aD, aM, aA = reco.split("/")
-            edad = aH - int(aA)
-            if int(aM) > mH or int(aM) == mH and int(aD) > dH:
-                edad -= 1
-            if edad >= 18:
-                listaMayor.append(nombres[rec])  
-
-        resultado_texto = ', '.join(listaMayor)  
-        self.resultado.setText(resultado_texto)
 
 
 class VentanaPrincipal(QMainWindow):
