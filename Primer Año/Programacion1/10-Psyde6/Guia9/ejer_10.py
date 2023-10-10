@@ -28,7 +28,7 @@ class VentanaPromedio(QMainWindow):
         # Agregar widgets al layout
         layout.addWidget(self.texto)
 
-        for salario, nombre in zip(self.listaSalario, self.listaNombres):#es lo mismo que hacer un for para cada lista para recorrerla
+        for salario, nombre in zip(self.listaSalario, self.listaNombres):
             layout.addWidget(nombre)
             layout.addWidget(salario)
         layout.addWidget(self.boton)
