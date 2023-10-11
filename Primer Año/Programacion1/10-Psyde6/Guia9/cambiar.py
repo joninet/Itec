@@ -1,92 +1,65 @@
-#Cargar en listas los nombres y fechas de nacimiento de varias personas, luego recorrerlo y mostrar los nombres de los mayores de edad.
+import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton
-
-class VentanaPromedio(QMainWindow):
-    def __init__(self, cantidad):
-        super().__init__()
-        self.cantidad = cantidad
-        layout = QVBoxLayout()
-
-        # Crear etiquetas, botones y listas
-        self.texto = QLabel('Ingresar edades y nombres')
-        self.lista_Fecha = []
-        self.lista_nombres = []
-        for _ in range(self.cantidad):
-            self.lista_nombres.append(QLineEdit("Nombre"))
-            self.lista_Fecha.append(QLineEdit("xx/xx/xxxx"))
-
-        self.boton = QPushButton('Enviar')
-        self.boton.setDefault(True)
-        self.boton.clicked.connect(self.Fechas)
-
-        self.resultado = QLabel('')
-
-        # Agregar widgets al layout
-        layout.addWidget(self.texto)
-        for fecha, nombre in zip(self.lista_Fecha, self.lista_nombres):#es lo mismo que hacer un for para cada lista para recorrerla
-            layout.addWidget(nombre)
-            layout.addWidget(fecha)
-        layout.addWidget(self.boton)
-        layout.addWidget(self.resultado)
-
-        # Configurar el widget central de la ventana
-        centralWidget = QWidget()
-        centralWidget.setLayout(layout)
-        self.setCentralWidget(centralWidget)
-
-    def Fechas(self):
-        listaMayor = []  
-        aH = 2023
-        mH = 6
-        dH = 3
-
-        nombres = [nombre.text() for nombre in self.lista_nombres]  
-        #es lo mismo que hacer esto
-        #nombres = []
-        #for nombre in self.lista_nombres:
-            #nombres.append(nombre.text())
-
-        
-
-        for rec in range(len(self.lista_Fecha)):
-            reco = self.lista_Fecha[rec].text()  
-            aD, aM, aA = reco.split("/")
-            edad = aH - int(aA)
-            if int(aM) > mH or int(aM) == mH and int(aD) > dH:
-                edad -= 1
-            if edad >= 18:
-                listaMayor.append(nombres[rec])  
-
-        resultado_texto = ', '.join(listaMayor)  
-        self.resultado.setText(resultado_texto)
+from PySide6.QtCore import QSize, Qt
+from PySide6.QtGui import QAction, QIcon
+from PySide6.QtWidgets import (
+    QApplication,
+    QCheckBox,
+    QLabel,
+    QMainWindow,
+    QStatusBar,
+    QToolBar,
+)
 
 
-class VentanaPrincipal(QMainWindow):
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        layout = QVBoxLayout()
 
-        self.texto = QLabel('Ingresar cantidad a cargar')
-        self.entrada = QLineEdit()
-        self.boton = QPushButton('Enviar')
-        layout.addWidget(self.texto)
-        layout.addWidget(self.entrada)
-        layout.addWidget(self.boton)
+        self.setWindowTitle("My App")
 
-        self.boton.clicked.connect(self.ventanaDos)
+        label = QLabel("Hello!")
+        label.setAlignment(Qt.AlignCenter)
 
-        centralWidget = QWidget()
-        centralWidget.setLayout(layout)
-        self.setCentralWidget(centralWidget)
+        self.setCentralWidget(label)
 
-    def ventanaDos(self):
-        cant = int(self.entrada.text())
-        self.ventana2 = VentanaPromedio(cant)
-        self.ventana2.show()
+        toolbar = QToolBar("My main toolbar")
+        toolbar.setIconSize(QSize(16, 16))
+        self.addToolBar(toolbar)
 
-if __name__ == '__main__':
-    app = QApplication([])
-    window = VentanaPrincipal()
-    window.show()
-    app.exec()
+        button_action = QAction(QIcon("bug.png"), "&Your button", self)
+        button_action.setStatusTip("This is your button")
+        button_action.triggered.connect(self.onMyToolBarButtonClick)
+        button_action.setCheckable(True)
+        toolbar.addAction(button_action)
+
+        toolbar.addSeparator()
+
+        button_action2 = QAction(QIcon("bug.png"), "Your &button2", self)
+        button_action2.setStatusTip("This is your button2")
+        button_action2.triggered.connect(self.onMyToolBarButtonClick)
+        button_action2.setCheckable(True)
+        toolbar.addAction(button_action2)
+
+        toolbar.addWidget(QLabel("Hello"))
+        toolbar.addWidget(QCheckBox())
+
+        self.setStatusBar(QStatusBar(self))
+
+        menu = self.menuBar()
+
+        file_menu = menu.addMenu("&File")
+        file_menu.addAction(button_action)
+        file_menu.addSeparator()
+        file_menu.addAction(button_action2)
+
+    def onMyToolBarButtonClick(self, s):
+        print("click", s)
+
+
+app = QApplication(sys.argv)
+
+window = MainWindow()
+window.show()
+
+app.exec_()
