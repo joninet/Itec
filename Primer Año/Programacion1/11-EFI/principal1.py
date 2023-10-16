@@ -4,8 +4,6 @@ from PySide6.QtGui import QAction, QIcon
 from pathlib import Path
 import sys
 
-def absPath(file):
-    return str(Path(__file__).parent.absolute() / file)
 class ventanaPrueba(QMainWindow):
     def __init__(self):
         super().__init__()
