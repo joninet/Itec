@@ -14,6 +14,7 @@ class ventanaPrueba(QMainWindow):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("EFI - Programacion1")
         self.resize(700, 400)
         self.menuCompleto()
 
