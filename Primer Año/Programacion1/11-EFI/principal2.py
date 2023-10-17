@@ -1,7 +1,10 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QWidget, QGridLayout, QMessageBox, QStatusBar
-from PySide6.QtCore import Qt  
-from PySide6.QtGui import QAction, QIcon
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QStatusBar
+from PySide6.QtGui import QAction, QIcon, QPainter, QPixmap
 from pathlib import Path
+from Pagos import InPagos , EditPagos
+from Gastos import InGastos , EditGastos
+from Informe import InInforme
+from Cierre_caja import CierreCaja
 import sys
 
 class ventanaPrueba(QMainWindow):
@@ -12,51 +15,55 @@ class ventanaPrueba(QMainWindow):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("EFI - Programacion1")
+        self.setWindowTitle("EasyPay - PRINCIPAL")
         self.resize(700, 400)
+        self.menuCompleto()
+        self.setStyleSheet("background-image: url(imagenes/easypay.png);")
 
-        centralWidget = QWidget()
-        self.setCentralWidget(centralWidget)
+    def menuCompleto(self):
+        menu = self.menuBar()
+        
+        # Menú Caja
+        menuCaja = menu.addMenu("Caja")
+        cierreCaja = QAction("Cierre de Caja", self)
+        cierreCaja.triggered.connect(self.mostrarVentana("CierreCaja()"))
+        menuCaja.addAction(cierreCaja)
 
-        # Boton Caja
-        layout = QGridLayout()
-        self.caja = QPushButton('Caja')
-        self.caja.setDefault(True)
-        self.caja.setMinimumSize(300, 30)
-        self.caja.clicked.connect(self.mostrarVentanaPrueba)
-        layout.addWidget(self.caja, 0, 0)  
+        # Menú Pagos
+        menuPagos = menu.addMenu("Pago")
+        ingresarPagos = QAction("Ingresar", self)
+        ingresarPagos.triggered.connect(self.mostrarVentana("InPagos()"))
+        menuPagos.addAction(ingresarPagos)
 
-        # Boton Pagos
-        self.pagos = QPushButton('Pagos')
-        self.pagos.setDefault(True)
-        self.pagos.setMinimumSize(300, 30)
-        self.pagos.clicked.connect(self.mostrarVentanaPrueba)
-        layout.addWidget(self.pagos, 1, 0)  
+        editarPagos = QAction("Editar", self)
+        editarPagos.triggered.connect(self.mostrarVentana("EditPagos()"))
+        menuPagos.addAction(editarPagos)
 
-        # Boton Gastos
-        self.gastos = QPushButton('Gastos')
-        self.gastos.setDefault(True)
-        self.gastos.setMinimumSize(300, 30)
-        self.gastos.clicked.connect(self.mostrarVentanaPrueba)
-        layout.addWidget(self.gastos, 2, 0)  
+        # Menú Gastos
+        menuGastos = menu.addMenu("Gasto")
+        ingresarGastos = QAction("Ingresar", self)
+        ingresarGastos.triggered.connect(self.mostrarVentana("InGastos()"))
+        menuGastos.addAction(ingresarGastos)
 
-        # Boton Gastos
-        self.informes = QPushButton('Informes')
-        self.informes.setDefault(True)
-        self.informes.setMinimumSize(300, 30)
-        self.informes.clicked.connect(self.mostrarVentanaPrueba)
-        layout.addWidget(self.informes, 3, 0) 
+        editarGastos = QAction("Editar", self)
+        editarGastos.triggered.connect(self.mostrarVentana("EditGastos()"))
+        menuGastos.addAction(editarGastos)
 
-        layout.setAlignment(Qt.AlignCenter) 
-        centralWidget.setLayout(layout)
+        # Menú Informes
+        menuInformes = menu.addMenu("Informes")
+        informesAction = QAction("Ver Informes", self)
+        informesAction.triggered.connect(self.mostrarVentana("CierreCaja()"))
+        menuInformes.addAction(informesAction)
 
-    def mostrarVentanaPrueba(self):
-        self.ventana2 = ventanaPrueba()
+
+        self.setStatusBar(QStatusBar(self))
+
+    def mostrarVentana(self,nombreImport):
+        self.ventana2 = nombreImport
         self.ventana2.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    sys.exit(app.exec_())
-
+    sys.exit(app.exec())
