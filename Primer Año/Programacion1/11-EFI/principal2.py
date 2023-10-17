@@ -25,38 +25,28 @@ class MainWindow(QMainWindow):
         
         # Menú Caja
         menuCaja = menu.addMenu("Caja")
-        cierreCaja = QAction("Cierre de Caja", self)
-        cierreCaja.triggered.connect(self.mostrarVentana("CierreCaja()"))
-        menuCaja.addAction(cierreCaja)
+        self.crearSubmenu("menuCaja","cierreCaja","Cierre de Caja","CierreCaja()")
 
         # Menú Pagos
         menuPagos = menu.addMenu("Pago")
-        ingresarPagos = QAction("Ingresar", self)
-        ingresarPagos.triggered.connect(self.mostrarVentana("InPagos()"))
-        menuPagos.addAction(ingresarPagos)
-
-        editarPagos = QAction("Editar", self)
-        editarPagos.triggered.connect(self.mostrarVentana("EditPagos()"))
-        menuPagos.addAction(editarPagos)
+        self.crearSubmenu("menuPagos","ingresarPagos","Ingresar","InPagos()")
+        self.crearSubmenu("menuPagos","editarPagos","Editar","EditPagos()")
 
         # Menú Gastos
         menuGastos = menu.addMenu("Gasto")
-        ingresarGastos = QAction("Ingresar", self)
-        ingresarGastos.triggered.connect(self.mostrarVentana("InGastos()"))
-        menuGastos.addAction(ingresarGastos)
-
-        editarGastos = QAction("Editar", self)
-        editarGastos.triggered.connect(self.mostrarVentana("EditGastos()"))
-        menuGastos.addAction(editarGastos)
+        self.crearSubmenu("menuGastos","ingresarGastos","Ingresar","InGastos()")
+        self.crearSubmenu("menuGastos","editarGastos","Editar","EditGastos()")
 
         # Menú Informes
         menuInformes = menu.addMenu("Informes")
-        informesAction = QAction("Ver Informes", self)
-        informesAction.triggered.connect(self.mostrarVentana("CierreCaja()"))
-        menuInformes.addAction(informesAction)
-
-
+        self.crearSubmenu("menuInformes","informesAction","Ver Informes","EditGastos()")
+        
         self.setStatusBar(QStatusBar(self))
+
+    def crearSubmenu(self,nombreMenu,nombreVariable,texto,conexion):
+        nombreVariable = QAction(texto, self)
+        nombreVariable.triggered.connect(self.mostrarVentana(conexion))
+        nombreMenu.addAction(nombreVariable)
 
     def mostrarVentana(self,nombreImport):
         self.ventana2 = nombreImport
