@@ -40,12 +40,12 @@ class MainWindow(QMainWindow):
         # Menú Informes
         menuInformes = menu.addMenu("Informes")
         self.crearSubmenu("menuInformes","informesAction","Ver Informes","EditGastos()")
-        
+
         self.setStatusBar(QStatusBar(self))
 
-    def crearSubmenu(self,nombreMenu,nombreVariable,texto,conexion):
+    def crearSubmenu(self,nombreMenu,nombreVariable,texto,conexionVentana):
         nombreVariable = QAction(texto, self)
-        nombreVariable.triggered.connect(self.mostrarVentana(conexion))
+        nombreVariable.triggered.connect(self.mostrarVentana(conexionVentana))
         nombreMenu.addAction(nombreVariable)
 
     def mostrarVentana(self,nombreImport):
