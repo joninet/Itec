@@ -11,13 +11,20 @@
 
 <body>
 
-    <div class="container">
-        <h2>BIENVENIDO</h2>
-        <form onsubmit="return validarFormulario()">
-            <input type="text" id="username" placeholder="Nombre de Usuario">
-            <input type="password" id="password" placeholder="Contraseña">
-            <button type="submit" class="boton">Iniciar Sesión</button>
-        </form>
+    <div class="contenedor">
+        <div class="formulario">
+            <h2>BIENVENIDO</h2>
+            <form onsubmit="return validarFormulario()">
+                <input type="text" id="username" placeholder="Nombre de Usuario">
+                <br>
+                <br>
+                <input type="password" id="password" placeholder="Contraseña">
+                <br>
+                <br>
+                <button type="submit" class="boton">Iniciar Sesión</button>
+            </form>
+        </div>
+        <br>
         <div id="error-msg" class="error-message"></div> <!-- Elemento para mostrar el mensaje de error -->
     </div>
     <script src="script.js"></script>

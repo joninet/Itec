@@ -1,3 +1,30 @@
+
+.contenedor {
+    border-radius: 8px;
+    background-color: #092330;
+    width: 400px; /* Cambia el ancho según tus necesidades */
+    height: 400px; /* Cambia la altura según tus necesidades */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* Cambia el color del texto según tus necesidades */
+    padding: 20px; /* Añade un relleno al contenedor */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el ancho y alto del contenedor */
+}
+.formulario{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+}
 .error-message {
-    color: red;
+    text-align: center;
+    width: 80%;
+    height: 30px;
+    color: rgb(255, 0, 0);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
 }

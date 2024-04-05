@@ -1,8 +1,11 @@
 function validarFormulario() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
-
-    if (username === "joninet" && password === "1234") {
+    
+    var usuario = "joninet"
+    var contraseña = "1234"
+    
+    if (username === usuario && password === contraseña) {
         alert("Inicio de sesión exitoso");
         return true;
     } else if (username === "" && password === ""){
