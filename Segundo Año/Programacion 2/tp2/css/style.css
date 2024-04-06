@@ -1,0 +1,99 @@
+/* Fuentes personalizadas */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Variables */
+:root {
+    --color-primario: #007bff;
+    --color-secundario: #6c757d;
+    --espaciado: 10px;
+    --fontsize-primario: 16px;
+    --fontsize-links: 20px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--fontsize-primario);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: var(--color-primario);
+    padding: var(--espaciado);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.contenido {
+    margin-left: 350px;
+    padding: var(--espaciado);
+}
+
+section {
+    padding: var(--espaciado);
+    margin-bottom: var(--espaciado);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.titulo {
+    background-color: var(--color-secundario);
+    padding: var(--espaciado);
+    margin-bottom: var(--espaciado);
+    border-radius: 8px;
+    border-color: #041528;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.titulo h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-style: italic;
+        color: white;
+}
+
+
+section h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado);
+}
+
+section h4 {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-secundario);
+    margin-bottom: var(--espaciado);
+}
+
+a {
+    color: #0a353d;
+    font-size: var(--fontsize-links);
+}
+
+a:hover {
+    color: #ffffff;
+    background: #041528;
+    border-radius: 8px;
+}
+
+.icono {
+    fill: var(--color-primario);
+    width: 30px;
+  }  
+
+
