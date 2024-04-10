@@ -1,8 +1,7 @@
-/* Fuentes personalizadas */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-/* Variables */
 :root {
     --color-primario: #007bff;
     --color-secundario: #6c757d;
