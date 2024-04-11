@@ -26,6 +26,12 @@ nav {
     height: 100%;
 }
 
+.ul_sobremi li {
+    color: #745636;
+    font-style: italic;
+    list-style-type: square;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
