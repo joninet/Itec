@@ -1,13 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nombres</title>
 </head>
 <body>
+    <form onsubmit="return validarFormulario()">
+        <h1>Ingresar Nombres - Escribir "fin" para finalizar</h1>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="mostrar-lista"></div> 
     <script>
-        
+        let listaNombres = [];
+        // esta funcion se ejecuta cuando enviamos el formulario
+        function validarFormulario() {
+            // Se obtiene el valor del input nombre
+            const nombre = document.getElementById('nombre').value;
+            if (nombre.toLowerCase() === "fin") {
+                // Selecciona el elemento HTML con el ID 'mostrar-lista' y establece su contenido de texto
+                // como la concatenación de los elementos de 'listaNombres', separados por comas y espacios.
+                document.getElementById('mostrar-lista').textContent = listaNombres.join(', ');
+            } else {
+                // Si no es "fin", se agrega el nombre a la lista de nombres
+                listaNombres.push(nombre);
+            }
+            // Se devuelve false para evitar el envío del formulario y la recarga de la página
+            return false;
+        }
     </script>
 </body>
 </html>

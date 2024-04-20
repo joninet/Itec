@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeros</title>
+</head>
+<body>
+    <form onsubmit="return validarFormulario()">
+        <h1>Ingresar 3 Numeros</h1>
+        <input type="text" id="numero" placeholder="Numero">
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="mostrar-lista"></div> 
+    <script>
+        let listaNumeros = [];
+        let listaPares = [];
+        function validarFormulario() {
+            const cantidadNumeros = 3;
+            const numero = document.getElementById('numero').value;
+            if (listaNumeros.length === cantidadNumeros) {
+                for (let i = 0; i < listaNumeros.length; i++) {
+                    if (listaNumeros[i] % 2 === 0){
+                        listaPares.push(listaNumeros[i])
+                    }
+                }
+                document.getElementById('mostrar-lista').innerHTML = listaPares.join(', ');
+                return false;
+
+            } else {
+                listaNumeros.push(numero);
+                document.getElementById('numero').value = ''; 
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>
