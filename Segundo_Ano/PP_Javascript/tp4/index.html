@@ -4,88 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas de los alumnos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .inline-form {
             display: inline-block;
-            margin-right: 10px; /* Ajusta el margen entre los formularios */
+            margin-right: 10px; 
         }
     </style>
 </head>
 <body>
-    <form onsubmit="return registroNotas()">
-        <h1>Ingresar Calificaciones</h1>
-        <input type="text" id="nombre" placeholder="Nombre">
-        <input type="number" id="nota" placeholder="Nota">
-        <button type="submit">Enviar</button>
-    </form>
-    <br>
-    <form class="inline-form" onsubmit="return mostrarPromedios()">
-        <button type="submit">Promedio General</button>
-    </form>
-    <form class="inline-form" onsubmit="return mostrarNotas()">
-        <button type="submit">Nota Alta</button>
-    </form>
-    <form class="inline-form" onsubmit="return mostrarPromedios()">
-        <button type="submit">Nota Baja</button>
-    </form>
-    <div id="mostrar-notaAlta"></div> 
-    <div id="mostrar-promedios"></div> 
-    
-    <script>
-        let listaAlumnos = [];
-
-        function registroNotas() {
-            const nombreAlumno = document.getElementById('nombre').value;
-            const notaAlumno = document.getElementById('nota').value;
-
-            const alumno = {
-                nombre: nombreAlumno,
-                nota: notaAlumno
-            };
-            if (listaAlumnos.length == 2){
-                alert("Ya has ingresado el máximo de alumnos permitidos.");
-                return false;
-            }else {
-                listaAlumnos.push(alumno);
-                localStorage.setItem('listaAlumnos', JSON.stringify(listaAlumnos));
-
-                alert("Ingreso correcto");
-
-                document.getElementById('nombre').value = ''; 
-                document.getElementById('nota').value = ''; 
-                return false;
-
-            }
-        }
-
-        function mostrarPromedios() {
-            const mostrarJSON = localStorage.getItem('listaAlumnos');
-            const listaAlumnos = JSON.parse(mostrarJSON);
-
-            let notas = 0 ;
-            for (let i = 0; i < listaAlumnos.length; i++) {
-                notas += parseFloat(listaAlumnos[i].nota);
-            }
-            promedioAlumnos = notas / 2;
-
-            document.getElementById('mostrar-promedios').innerHTML = promedioAlumnos;
-            return false;
-        }
-        function mostrarNotaAlta(){
-            const mostrarJSON = localStorage.getItem('listaAlumnos');
-            const listaAlumnos = JSON.parse(mostrarJSON);
-            
-            let notaAlta = 0;
-            for (let i = 0; i <  listaAlumnos.length; i++){
-                let notaParse = parseFloat(listaAlumnos[i].nota);
-                if(notaParse > notaAlta) {
-                    notaAlta = notaParse
-                }
-            }
-            document.getElementById('mostrar-notaAlta').innerHTML = notaAlta;
-            return false;
-        }
-    </script>
+    <div class="container mt-5">
+        <form class="mb-3" onsubmit="return registroNotas()">
+            <h1>Ingresar Calificaciones</h1>
+            <div class="form-group">
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="nota" placeholder="Nota">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <div class="mb-3">
+            <form class="inline-form" onsubmit="return mostrarPromedios()">
+                <button type="submit" class="btn btn-info">Promedio General</button>
+            </form>
+            <form class="inline-form" onsubmit="return mostrarNotaAlta()">
+                <button type="submit" class="btn btn-info">Nota Alta</button>
+            </form>
+            <form class="inline-form" onsubmit="return mostrarNotaBaja()">
+                <button type="submit" class="btn btn-info">Nota Baja</button>
+            </form>
+            <form class="inline-form" onsubmit="return mostrarAprobados()">
+                <button type="submit" class="btn btn-info">Aprobados</button>
+            </form>
+            <form class="inline-form" onsubmit="return mostrarDesaprobados()">
+                <button type="submit" class="btn btn-info">Desaprobados</button>
+            </form>
+        </div>
+        <div id="mostrar-notaAlta"></div> 
+        <div id="mostrar-promedios"></div> 
+        <div id="mostrar-notaBaja"></div> 
+        <div id="mostrar-aprobados"></div> 
+        <div id="mostrar-desaprobados"></div> 
+    </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
