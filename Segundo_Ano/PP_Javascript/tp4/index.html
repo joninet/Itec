@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas de los alumnos</title>
+</head>
+<body>
+    <form onsubmit="return registroNotas()">
+        <h1>Ingresar Calificaciones</h1>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="number" id="nota" placeholder="Nota">
+        <button type="submit">Enviar</button>
+    </form>
+    <form onsubmit="return mostrarPromedios()">
+        <button type="submit">mostrar</button>
+    </form>
+    <div id="mostrar-promedios"></div> 
+    <script>
+        let listaAlumnos = [];
+
+        function registroNotas() {
+            const nombreAlumno = document.getElementById('nombre').value;
+            const notaAlumno = document.getElementById('nota').value;
+
+            const alumno = {
+                nombre: nombreAlumno,
+                nota: notaAlumno
+            };
+            if (listaAlumnos.length == 2){
+                alert("Ya has ingresado el máximo de alumnos permitidos.");
+                return false;
+            }else {
+                listaAlumnos.push(alumno);
+                localStorage.setItem('listaAlumnos', JSON.stringify(listaAlumnos));
+
+                alert("Ingreso correcto");
+
+                document.getElementById('nombre').value = ''; 
+                document.getElementById('nota').value = ''; 
+                return false;
+
+            }
+        }
+
+        function mostrarPromedios() {
+            const mostrarJSON = localStorage.getItem('listaAlumnos');
+            const listaAlumnos = JSON.parse(mostrarJSON);
+
+            let notas = 0 ;
+            for (let i = 0; i < listaAlumnos.length; i++) {
+                notas += parseFloat(listaAlumnos[i].nota);
+            }
+            promedioAlumnos = notas / 2;
+
+            document.getElementById('mostrar-promedios').innerHTML = promedioAlumnos;
+            return false;
+        }
+    </script>
+</body>
+</html>
+
