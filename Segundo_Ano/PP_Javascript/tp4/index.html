@@ -28,8 +28,9 @@
     <form class="inline-form" onsubmit="return mostrarPromedios()">
         <button type="submit">Nota Baja</button>
     </form>
-    <div id="mostrar-promedios"></div> 
     <div id="mostrar-notaAlta"></div> 
+    <div id="mostrar-promedios"></div> 
+    
     <script>
         let listaAlumnos = [];
 
@@ -50,7 +51,7 @@
 
                 alert("Ingreso correcto");
 
-                document.('nombre').value = ''; 
+                document.getElementById('nombre').value = ''; 
                 document.getElementById('nota').value = ''; 
                 return false;
 
@@ -71,13 +72,18 @@
             return false;
         }
         function mostrarNotaAlta(){
+            const mostrarJSON = localStorage.getItem('listaAlumnos');
+            const listaAlumnos = JSON.parse(mostrarJSON);
+            
             let notaAlta = 0;
-            for (let i =0, i <  listaAlumnos.length; i++){
-                if (parseFloat(listaAlumnos[i].nota) > notaAlta){
-                    notaAlta = parseFloat(listaAlumnos[i].nota)
+            for (let i = 0; i <  listaAlumnos.length; i++){
+                let notaParse = parseFloat(listaAlumnos[i].nota);
+                if(notaParse > notaAlta) {
+                    notaAlta = notaParse
                 }
             }
             document.getElementById('mostrar-notaAlta').innerHTML = notaAlta;
+            return false;
         }
     </script>
 </body>
