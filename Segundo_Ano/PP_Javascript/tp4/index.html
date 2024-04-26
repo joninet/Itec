@@ -22,13 +22,14 @@
     <form class="inline-form" onsubmit="return mostrarPromedios()">
         <button type="submit">Promedio General</button>
     </form>
-    <form class="inline-form" onsubmit="return mostrarPromedios()">
+    <form class="inline-form" onsubmit="return mostrarNotas()">
         <button type="submit">Nota Alta</button>
     </form>
     <form class="inline-form" onsubmit="return mostrarPromedios()">
         <button type="submit">Nota Baja</button>
     </form>
     <div id="mostrar-promedios"></div> 
+    <div id="mostrar-notaAlta"></div> 
     <script>
         let listaAlumnos = [];
 
@@ -49,7 +50,7 @@
 
                 alert("Ingreso correcto");
 
-                document.getElementById('nombre').value = ''; 
+                document.('nombre').value = ''; 
                 document.getElementById('nota').value = ''; 
                 return false;
 
@@ -68,6 +69,15 @@
 
             document.getElementById('mostrar-promedios').innerHTML = promedioAlumnos;
             return false;
+        }
+        function mostrarNotaAlta(){
+            let notaAlta = 0;
+            for (let i =0, i <  listaAlumnos.length; i++){
+                if (parseFloat(listaAlumnos[i].nota) > notaAlta){
+                    notaAlta = parseFloat(listaAlumnos[i].nota)
+                }
+            }
+            document.getElementById('mostrar-notaAlta').innerHTML = notaAlta;
         }
     </script>
 </body>
