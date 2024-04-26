@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas de los alumnos</title>
+    <style>
+        .inline-form {
+            display: inline-block;
+            margin-right: 10px; /* Ajusta el margen entre los formularios */
+        }
+    </style>
 </head>
 <body>
     <form onsubmit="return registroNotas()">
@@ -12,8 +18,15 @@
         <input type="number" id="nota" placeholder="Nota">
         <button type="submit">Enviar</button>
     </form>
-    <form onsubmit="return mostrarPromedios()">
-        <button type="submit">mostrar</button>
+    <br>
+    <form class="inline-form" onsubmit="return mostrarPromedios()">
+        <button type="submit">Promedio General</button>
+    </form>
+    <form class="inline-form" onsubmit="return mostrarPromedios()">
+        <button type="submit">Nota Alta</button>
+    </form>
+    <form class="inline-form" onsubmit="return mostrarPromedios()">
+        <button type="submit">Nota Baja</button>
     </form>
     <div id="mostrar-promedios"></div> 
     <script>
