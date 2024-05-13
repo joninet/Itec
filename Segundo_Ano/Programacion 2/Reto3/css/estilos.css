@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+/* -------------Variables */
+:root{
+--green-color:#7ACC2D;
+--white-color:white;
+--black-color:#313337;
+/* Tipografía */
+--normal:12px;
+/* Espaciado */
+--space:10px;
+/* Box shadow */
+--box:0px 0 2px 1px #e6e5e9;
+}
+
+/* -------------Variables */
+html,body{
+  padding:0px;
+  margin:0px;
+  font-size: var(--normal);
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+nav{
+  display: flex;
+  background-color: var(--green-color);
+  padding: var(--space);
+  color: var(--white-color);
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul{
+  display: flex;
+}
+
+nav li{
+  padding-left: 20px;
+  list-style: none;
+
+}
+
+nav li a{
+  color: var(--black-color);
+  text-decoration: none;
+}
+
+nav li a:hover{
+  color: var(--white-color);
+}
+
+/* ------------------------ Main section */
+
+.main_section{
+  padding: 15%;
+  text-align: center;
+}
+
+.products{
+  background-image: url("../images/curve.png");
+  max-height: 50px;
+  background-size: cover;
+  background-position: center top;
+  padding:20%;
+  display: flex;
+}
+
+.product{
+  padding: var(--space);
+  margin-top: -240px;
+}
+.product .content{
+  background-color: var(--white-color);
+  padding: var(--space);
+  box-shadow: var(--box);
+}
+.img_content{
+  text-align: center;
+}
+
+.contenedora{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  padding: 5%;
+  border-bottom: #e6e5e9;
+}
+.caracteristicas{
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  margin-top: 7%;
+  margin-bottom: 1%;
+}
+
+.caracteristicas p {
+  text-align: left;
+}
+
+.caracteristicas h3{
+  text-align: center;
+}
+.caracteristicas img {
+  max-width: 100%; 
+  height: auto; 
+  max-height: 100px; 
+}
+
+.main_button{
+  background-color: var(--green-color);
+  width: 100%;
+  padding: var(--space);
+  font-size: var(--normal);
+  color: var(--white-color);
+  border:0;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.main_button:hover{
+  background-color: #5e9e22;
+}
+
+.titulo_menciones{
+  text-align: center;
+  }
+
+.contenedor_menciones {
+    display: flex; 
+    text-align: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 5%;
+    margin-top: 7%;
+  }
+
+  .cajas_fotos {
+    width: 300px; 
+    margin: 10px; 
+    border: 1px solid #ccc; 
+    box-shadow: -1px -1px 40px -1px rgba(0,0,0,0.63);
+  }
+  
+  .cajas_fotos img {
+    width: 100%; 
+  }
+
+  .cajas_fotos h3 {
+    text-align: left;
+    margin-left: 5px;
+  }
+
+  .cajas_fotos p {
+    text-align: left;
+    font-size: small;
+    margin-left: 5px;
+  }
+footer {
+  background-color: rgb(63, 63, 63);
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+}
+
+footer p {
+  color: white;
+}
+
+hr{
+  border-color: rgba(235, 235, 235, 0.194);
+}
