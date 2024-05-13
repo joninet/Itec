@@ -26,7 +26,7 @@ html,body{
 
 .contenedor_menciones {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: repeat(auto-fit, 300px);
   gap: 20px; /* Espacio entre elementos */
   justify-content: center;
   margin-bottom: 5%;
@@ -34,7 +34,7 @@ html,body{
 }
 
 .cajas_fotos {
-  width: 300px; 
+  width: 90%; 
   margin: auto; 
   border: 1px solid #ccc; 
   box-shadow: -1px -1px 40px -1px rgba(0,0,0,0.63);
