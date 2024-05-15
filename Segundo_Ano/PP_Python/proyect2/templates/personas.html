@@ -1,0 +1,14 @@
+{%  extends 'template_base.html' %}
+
+{%  block content %}
+    {{nombres}}
+
+    {% for nombre in nombres %}
+     <li> {{nombre}} </li>
+    {% endfor %}
+
+    {% for nombre in diccionarioPersonas %}
+    <li> {{nombre.edad}} </li>
+   {% endfor %}
+{% endblock %}
+
