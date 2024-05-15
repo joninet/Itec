@@ -1,5 +1,10 @@
 let listaAlumnos = [];
 
+function obtenerLocalStorage(nombre){
+    const mostrarJSON = localStorage.getItem(nombre);
+    return nombre ? JSON.parse(mostrarJSON) : [];
+}
+
 function registroNotas() {
     const nombreAlumno = document.getElementById('nombre').value;
     const notaAlumno = document.getElementById('nota').value;
