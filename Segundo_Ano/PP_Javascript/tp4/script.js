@@ -1,8 +1,8 @@
 let listaAlumnos = [];
 
-function obtenerLocalStorage(nombre){
+function obtenerLocalStorage(nombre) {
     const mostrarJSON = localStorage.getItem(nombre);
-    return nombre ? JSON.parse(mostrarJSON) : [];
+    return mostrarJSON ? JSON.parse(mostrarJSON) : [];
 }
 
 function registroNotas() {
@@ -33,8 +33,7 @@ function registroNotas() {
 }
 
 function mostrarPromedios() {
-    const mostrarJSON = localStorage.getItem('listaAlumnos');
-    const listaAlumnos = JSON.parse(mostrarJSON);
+    const listaAlumnos = obtenerLocalStorage('listaAlumnos');
 
     let notas = 0 ;
     for (let i = 0; i < listaAlumnos.length; i++) {
@@ -47,8 +46,7 @@ function mostrarPromedios() {
 }
 
 function mostrarNotaAlta(){
-    const mostrarJSON = localStorage.getItem('listaAlumnos');
-    const listaAlumnos = JSON.parse(mostrarJSON);
+    const listaAlumnos = obtenerLocalStorage('listaAlumnos');
     
     let notaAlta = 0;
     let nombreAlumno = ""
@@ -64,8 +62,7 @@ function mostrarNotaAlta(){
 }
 
 function mostrarNotaBaja(){
-    const mostrarJSON = localStorage.getItem('listaAlumnos');
-    const listaAlumnos = JSON.parse(mostrarJSON);
+    const listaAlumnos = obtenerLocalStorage('listaAlumnos');
     
     let notaBaja = 10;
     let nombreAlumno = ""
@@ -80,8 +77,7 @@ function mostrarNotaBaja(){
     return false;
 }
 function mostrarAprobados(){
-    const mostrarJSON = localStorage.getItem('listaAlumnos');
-    const listaAlumnos = JSON.parse(mostrarJSON);
+    const listaAlumnos = obtenerLocalStorage('listaAlumnos');
 
     let listaAprobados = "<ul>"
     for (let i = 0; i < listaAlumnos.length; i++) {
@@ -95,8 +91,7 @@ function mostrarAprobados(){
     return false;
 }
 function mostrarDesaprobados(){
-    const mostrarJSON = localStorage.getItem('listaAlumnos');
-    const listaAlumnos = JSON.parse(mostrarJSON);
+    const listaAlumnos = obtenerLocalStorage('listaAlumnos');
 
     let listaDesaprobados = "<ul>"
     for (let i = 0; i < listaAlumnos.length; i++) {

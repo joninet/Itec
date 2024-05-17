@@ -26,8 +26,10 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
         <div class="mb-3">
-            <form class="inline-form" onsubmit="return mostrarPromedios()">
-                <button type="submit" class="btn btn-info">Promedio General</button>
+            <form class="inline-form">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" onclick="mostrarPromedios()">
+                    Mostrar Promedios
+                </button>
             </form>
             <form class="inline-form" onsubmit="return mostrarNotaAlta()">
                 <button type="submit" class="btn btn-info">Nota Alta</button>
@@ -43,15 +45,33 @@
             </form>
         </div>
         <div id="mostrar-notaAlta"></div> 
-        <div id="mostrar-promedios"></div> 
         <div id="mostrar-notaBaja"></div> 
         <div id="mostrar-aprobados"></div> 
         <div id="mostrar-desaprobados"></div> 
     </div>
-    <script src="script.js"></script>
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Promedio General</h1>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="mostrar-promedios"></div> 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
 
