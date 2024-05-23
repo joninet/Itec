@@ -1,3 +1,7 @@
+#nativos de python
+
+#frameworks
+import requests
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -44,8 +48,10 @@ def bienvenido(nombre):
 
 @app.route('/personas')
 def personas():
+    peticion = requests.get(url="https://randomuser.me/api/?results=20")
+    respuesta = peticion.json()
+    listadoPersonas = respuesta['results']
     return render_template (
         'personas.html',
-        nombres = listadoNombre,
-        diccionarioPersonas = diccionarioNombre
+        listado = listadoPersonas
     )

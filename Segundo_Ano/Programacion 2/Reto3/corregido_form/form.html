@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/formulario.css">
+<link rel="stylesheet" href="css/footer.css">
+
+</head>
+
+<body>
+    <div class="col-12">
+		<header>
+			<div class="col-6">
+				<img src="images/logo.png" alt="">
+			</div>
+			<div class="col-6">
+				<ul>
+					<li><a href="#">Faqs</a></li>
+					<li><a href="#">Producto y descripción</a></li>
+					<li><a href="form.html">Contacto</a></li>
+				</ul>
+			</div>
+		</header>
+        <div class="formulario">
+            <div class="col-12">
+                <h2>Formulario de contacto</h2>
+                <form>
+                    <div class="col-6">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="col-6">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="col-12">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" required></textarea>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <footer>				
+            <div class="col-6"> 
+                <p>Terminos y Condiciones</p>
+            </div>
+            <div class="col-6"> 
+                <div class="align"><p>contacto@brand.com</p></div>
+            </div>				
+        </footer>
+
+</div>
+</body>
+</html>

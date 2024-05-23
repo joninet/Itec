@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+/* -------------Variables */
+:root{
+--green-color:#7ACC2D;
+--white-color:white;
+--black-color:#313337;
+/* Tipografía */
+--normal:12px;
+/* Espaciado */
+--space:10px;
+/* Box shadow */
+--box:0px 0 2px 1px #e6e5e9;
+}
+
+header{
+    font-size: var(--normal);
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--green-color);
+    padding: var(--space);
+    color: var(--white-color);
+    align-items: center;
+}
+
+header ul{
+    display: flex;
+    justify-content: flex-end;
+}
+  
+header li{
+    padding-left: 20px;
+    list-style: none;
+
+}
+  
+header li a{
+    color: var(--black-color);
+    text-decoration: none;
+    
+}
+  
+header li a:hover{
+    color: var(--white-color);
+    
+}
+
+.main_section{
+    font-size: var(--normal);
+    font-family: 'Open Sans', sans-serif;
+    padding: var(--space);
+    padding: 15%;
+    text-align: center;
+}
+
+@media (max-width:600px) {
+    header ul{
+        display: flex;
+        flex-direction: column;
+    }
+}

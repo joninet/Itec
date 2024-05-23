@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+/* -------------Variables */
+:root {
+--green-color: #7ACC2D;
+--white-color: white;
+--black-color: #313337;
+/* Tipografía */
+--normal: 12px;
+/* Espaciado */
+--space: 10px;
+/* Sombra de caja */
+--box: 0px 0 2px 1px #e6e5e9;
+}
+
+.main_section .col-12 {
+padding: 15%;
+text-align: center;
+}
+
+.productos {
+background-image: url("../images/curve.png");
+background-size: cover;
+background-position: center top;
+padding: 20%;
+display: flex;
+}
+
+.productos .col-6 .content {
+padding: var(--space);
+margin-top: 0; 
+}
+
+@media (max-width: 600px) {
+.productos {
+flex-direction: column; 
+}
+.productos .col-6 {
+width: 100%;
+}
+.productos .col-6 .content {
+margin-top: var(--space);
+border-bottom: none; 
+}
+.productos .col-6:first-child .content {
+border-top: 1px solid var(--black-color);
+}
+}
+
+.img_content {
+text-align: center;
+}
+
+.main_button {
+background-color: var(--green-color);
+width: 100%;
+padding: var(--space);
+font-size: var(--normal);
+color: var(--white-color);
+border: 0;
+cursor: pointer;
+border-radius: 2px;
+}
+
+.main_button:hover {
+background-color: #5e9e22;
+}
