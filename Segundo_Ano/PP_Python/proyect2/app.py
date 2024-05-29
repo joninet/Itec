@@ -2,7 +2,7 @@
 
 #frameworks
 import requests
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -48,10 +48,19 @@ def bienvenido(nombre):
 
 @app.route('/personas')
 def personas():
-    peticion = requests.get(url="https://randomuser.me/api/?results=20")
-    respuesta = peticion.json()
-    listadoPersonas = respuesta['results']
     return render_template (
         'personas.html',
-        listado = listadoPersonas
     )
+
+@app.route('/personas/add', methods=['POST', 'GET'])
+def addPersonas():
+    if request.method == 'POST':
+        nombre = request.form['nombre'],
+        apellido = request.form['apellido'],
+        email = request.form['email'],
+        ciudad = request.form['ciudad'],
+        print(nombre)
+    return render_template (
+        'add_personas.html',
+    )
+
