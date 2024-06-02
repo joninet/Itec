@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(252, 241, 227);
+}
+
+header {
+    background-color: rgb(252, 241, 227);
+    padding: 1em 0;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.hero {
+    text-align: center;
+    background-image: url('../img/hero.jpg');
+    background-size: cover;
+    color: white;
+    padding: 10em;
+}
+
+.products .row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 6em;
+}
+
+.products .column {
+    flex: 1;
+    margin: 0 1em;
+    text-align: center;
+}
+
+/* Ajusta el tamaño de las imágenes */
+.products .column img {
+    width: 100%;        /* Ancho al 100% del contenedor de la columna */
+    height: auto;       /* Altura automática para mantener la proporción */
+    max-width: 300px;   /* Ancho máximo de 300 píxeles */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+}
+
+footer {
+    position: relative; /* Necesario para los pseudo-elementos */
+    text-align: center;
+    background-image: url('../img/footer.jpg');
+    background-size: cover;
+    color: rgb(215, 215, 215);
+    padding: 4em;
+    z-index: 1; /* Asegura que el contenido del footer esté por encima del pseudo-elemento */
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21, 21, 21, 0.5); /* Color blanco con 50% de opacidad */
+    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido del footer */
+}
+

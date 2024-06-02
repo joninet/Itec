@@ -16,4 +16,4 @@ def informacion():
 
 @app.route('/bienvenido/<nombre>')
 def bienvenido(nombre):
-    return render_template('bienvenida.html', nombre=nombre)
+    return render_template('bienvenida.html', nombre=nombre) 
