@@ -1,4 +1,4 @@
-#!/home/jonathan/Documentos/Itec/Segundo_Ano/PP_Python/proyect2/entorno/bin/python3
+#!/home/joninet/Documentos/Itec/Segundo_Ano/PP_Python/proyect2/entorno/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

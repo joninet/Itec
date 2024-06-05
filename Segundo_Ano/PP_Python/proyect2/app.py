@@ -7,26 +7,26 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 listadoNombre=['joni', 'ana', 'jorge']
-diccionarioNombre = [
+listadoPersonas = [
     dict(
-        nombre = 'Ana',
-        edad= 30,
-        pais = 'Argentina',
+        name = dict(
+            first = "Jonathan",
+            last = "Desplats"
+        ),
+        location = dict(
+            city="Rio Cuarto"
+        ),
+        email = "joninet@msn.com"
     ),
     dict(
-        nombre = 'Jorge',
-        edad= 34,
-        pais = 'Argentina',
-    ),
-    dict(
-        nombre = 'Rosa',
-        edad= 22,
-        pais = 'Argentina',
-    ),
-    dict(
-        nombre = 'Joni',
-        edad= 36,
-        pais = 'Argentina',
+        name = dict(
+            first = "Jorge",
+            last = "Brognoni"
+        ),
+        location = dict(
+            city="Merlo"
+        ),
+        email = "jorge@oul.com"
     ),
 ]
 
