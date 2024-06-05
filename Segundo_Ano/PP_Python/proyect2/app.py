@@ -70,8 +70,8 @@ def addPersonas():
                 city= ciudad
             ),
             email = email
-        ),
-        listadoPersonas.append(persona[0])
+        )
+        listadoPersonas.append(persona)
         print(listadoPersonas)
     return render_template (
         'add_personas.html',
