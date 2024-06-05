@@ -48,18 +48,31 @@ def bienvenido(nombre):
 
 @app.route('/personas')
 def personas():
+    listado = listadoPersonas
     return render_template (
         'personas.html',
+        listado = listado
     )
 
-@app.route('/personas/add', methods=['POST', 'GET'])
+@app.route('/personasAdd', methods=['POST', 'GET'])
 def addPersonas():
     if request.method == 'POST':
-        nombre = request.form['nombre'],
-        apellido = request.form['apellido'],
-        email = request.form['email'],
-        ciudad = request.form['ciudad'],
-        print(nombre)
+        nombre = request.form['nombre']
+        apellido = request.form['apellido']
+        email = request.form['email']
+        ciudad = request.form['ciudad']
+        persona = dict(
+            name = dict(
+                first = nombre,
+                last = apellido
+            ),
+            location = dict(
+                city= ciudad
+            ),
+            email = email
+        ),
+        listadoPersonas.append(persona[0])
+        print(listadoPersonas)
     return render_template (
         'add_personas.html',
     )
