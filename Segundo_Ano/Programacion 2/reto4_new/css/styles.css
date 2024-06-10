@@ -118,6 +118,9 @@ header {
 .productos h3 {
     font-family: "Montserrat", sans-serif;
 }
+.productos p {
+    font-family: "Montserrat", sans-serif;
+}
 
 .row {
     display: grid;
