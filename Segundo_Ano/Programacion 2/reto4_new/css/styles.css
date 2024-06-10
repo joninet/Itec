@@ -15,8 +15,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333; /* Color de fondo del menú */
-    z-index: 999; /* Asegura que el menú esté por encima de otros elementos */
+    background-color: #333; 
+    z-index: 999;
 }
 
 .logo img, .cart img {
@@ -96,11 +96,11 @@ header {
 }
 
 .hero h1 {
-    background-color: rgb(214, 169, 101); /* Fondo negro */
-    border-radius: 10px; /* Bordes redondeados */
-    padding: 20px; /* Espacio interno */
-    font-size: 2.5em; /* Tamaño de la letra */
-    display: inline-block; /* Para que se ajuste al contenido */
+    background-color: rgb(214, 169, 101); 
+    border-radius: 10px; 
+    padding: 20px; 
+    font-size: 2.5em; 
+    display: inline-block; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     font-family: 'Great Vibes', cursive;
 }
@@ -195,7 +195,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh; /* Ajusta esta altura según sea necesario */
+    height: 10vh; 
   }
   
   .boton-vertodos {
