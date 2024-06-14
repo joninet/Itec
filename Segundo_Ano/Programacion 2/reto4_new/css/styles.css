@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 body {
     font-family: Arial, sans-serif;
@@ -165,40 +163,37 @@ header {
 }
 .column .contenedor-botones {
     display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Centra los botones verticalmente si el contenedor tiene altura */
 }
-  
+
+.column .boton, .column .boton-detalle {
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .column .boton {
-    display: inline-block;
-    width: 120px;
-    height: 30px;
     background-color: #d89d37;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
+
 .column .boton-detalle {
-    display: inline-block;
-    width: 120px;
-    height: 30px;
     background-color: #534b3c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 .ver-todos {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 10vh; 
-  }
+}
   
-  .boton-vertodos {
+.boton-vertodos {
     display: inline-block;
     width: 300px;
     height: 30px;
@@ -209,13 +204,12 @@ header {
     margin: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
   
-  .boton-vertodos:hover {
+.boton-vertodos:hover {
     background-color: #555555;
-  }
-  
-  
+}
+
 .column .boton:hover {
     background-color: #534b3c;
 }

@@ -1,19 +1,74 @@
-import numpy as np
-from scipy.stats import hmean, gmean
+def fcfs(sectores, inicio):
+    # FCFS: First-Come, First-Served
+    orden_peticiones = sectores
+    movimientos = sum(abs(orden_peticiones[i] - orden_peticiones[i - 1]) for i in range(1, len(sectores)))
+    return orden_peticiones, movimientos
 
-# Datos
-data = [4, 2, 3, 4, 3, 1, 4, 3, 3, 4, 1, 3]
+def sstf(sectores, inicio):
+    # SSTF: Shortest Seek Time First
+    orden_peticiones = []
+    movimientos = 0
+    while sectores:
+        siguiente_sector = min(sectores, key=lambda x: abs(x - inicio))
+        movimientos += abs(siguiente_sector - inicio)
+        inicio = siguiente_sector
+        orden_peticiones.append(siguiente_sector)
+        sectores.remove(siguiente_sector)
+    return orden_peticiones, movimientos
 
-# Media Aritmética
-mean_arithmetic = np.mean(data)
+def scan(sectores, inicio):
+    # SCAN: Elevador
+    orden_peticiones = []
+    movimientos = 0
+    sectores.sort()
+    while sectores:
+        for sector in sectores[:]:
+            if inicio <= sector:
+                orden_peticiones.append(sector)
+                movimientos += abs(sector - inicio)
+                inicio = sector
+                sectores.remove(sector)
+        if sectores:
+            inicio = max(sectores)
+            orden_peticiones.append(inicio)
+            movimientos += max(sectores) - inicio
+            inicio = max(sectores)
+            sectores.remove(inicio)
+    return orden_peticiones, movimientos
 
-# Media Armónica
-mean_harmonic = hmean(data)
+def c_scan(sectores, inicio):
+    # C-SCAN: Exploración Circular
+    orden_peticiones = []
+    movimientos = 0
+    sectores.sort()
+    while sectores:
+        for sector in sectores[:]:
+            if inicio <= sector:
+                orden_peticiones.append(sector)
+                movimientos += abs(sector - inicio)
+                inicio = sector
+                sectores.remove(sector)
+        if sectores:
+            inicio = min(sectores)
+            orden_peticiones.append(inicio)
+            movimientos += inicio - min(sectores)
+            inicio = min(sectores)
+            sectores.remove(inicio)
+    return orden_peticiones, movimientos
 
-# Media Cuadrática
-mean_quadratic = np.sqrt(np.mean(np.square(data)))
+# Ejemplo de uso:
+sectores = [10,50, 80, 100, 120, 200,250]
+inicio = 75  # Supongamos que el inicio es 75
+metodo = 0  # Cambia el método según tus necesidades
 
-# Media Geométrica
-mean_geometric = gmean(data)
+if metodo == 0:
+    orden, movimientos = fcfs(sectores, inicio)
+elif metodo == 1:
+    orden, movimientos = sstf(sectores, inicio)
+elif metodo == 2:
+    orden, movimientos = scan(sectores, inicio)
+elif metodo == 3:
+    orden, movimientos = c_scan(sectores, inicio)
 
-print(mean_arithmetic, mean_harmonic, mean_quadratic, mean_geometric)
+print(f"Orden de peticiones: {orden}")
+print(f"Total de movimientos entre sectores: {movimientos}")
