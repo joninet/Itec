@@ -13,3 +13,16 @@ class Tipo(db.Model):
 
     def __str__(self):
         return self.nombre
+    
+class Vehiculo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    modelo = db.Column(db.String(30), nullable=False)
+    cilindrada = db.Column(db.Integer)
+    marca_id = db.Column(db.Integer, db.ForeignKey('marca.id'), nullable=False)
+    tipo_id = db.Column(db.Integer, db.ForeignKey('tipo.id'), nullable=False)
+
+    marca = db.relationship('Marca', backref=db.backref('vehiculos', lazy=True)) 
+    tipo = db.relationship('Tipo', backref=db.backref('vehiculos', lazy=True))  
+
+    def __str__(self):
+        return self.modelo, self.cilindrada
